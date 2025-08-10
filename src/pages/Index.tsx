@@ -52,7 +52,7 @@ const Index = () => {
       <section className="relative">
         <div className="container">
           <div className="relative overflow-hidden rounded-2xl border border-border/60">
-            <img src={hero1} alt="Highly demanded resto cafe" className="h-[360px] w-full object-cover" />
+            <img src={hero1} alt="Highly demanded resto cafe" className="h-[360px] md:h-screen w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
               <h2 className="font-heading text-3xl md:text-4xl text-center tracking-wide">Choosen amount highly demanded rest cafe</h2>
@@ -67,7 +67,7 @@ const Index = () => {
       {/* Legacy banner linking to story */}
       <section className="container py-16">
         <div className="relative overflow-hidden rounded-2xl border border-border/60">
-          <img src={coffee} alt="Legacy and features of ALFBAKE" className="h-[360px] w-full object-cover" />
+          <img src={coffee} alt="Legacy and features of ALFBAKE" className="h-[360px] md:h-screen w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
             <p className="font-script text-accent text-3xl">A legacy of excellence</p>
