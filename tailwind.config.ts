@@ -17,6 +17,9 @@ export default {
         "2xl": "1400px",
       },
     },
+    maxWidth: {
+      "8xl": "88rem", // 1408px
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +64,12 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        custom: {
+          grey: "#6B7280", // Custom grey color - you can adjust this hex value
+          "dim-white": "#E5E7EB", // Custom dimmed white color - you can adjust this hex value
+          header: "#9CA3AF", // Custom header color equivalent to gray-400
+          "gray-450": "#7F8A9A", // Custom gray-450 color between gray-400 and gray-500
         },
       },
       fontFamily: {

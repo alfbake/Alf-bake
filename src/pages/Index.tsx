@@ -3,181 +3,857 @@ import HeroCarousel from "@/components/hero/HeroCarousel";
 import MenuGrid from "@/components/menu/MenuGrid";
 import SpecialsHover from "@/components/specials/SpecialsHover";
 import { Link } from "react-router-dom";
-import hero1 from "@/assets/chickenfry.jpeg";
-import steak from "@/assets/food-steak.jpg";
+import HomeAnimations, {
+  homeAnimationClasses,
+} from "@/components/ui/HomeAnimations";
+import GlobalAnimations, {
+  globalAnimationClasses,
+} from "@/components/ui/GlobalAnimations";
+import { ourStoryAnimationClasses } from "@/components/ui/OurStoryAnimations";
+import hero1 from "@/assets/friedchicken.png";
 import hero2 from "@/assets/burger2.png";
-import pasta from "@/assets/food-pasta.jpg";
-import burger from "@/assets/food-burger.jpg";
-import dessert from "@/assets/food-dessert.jpg";
-import coffee from "@/assets/food-coffee.jpg";
-import salad from "@/assets/food-salad.jpg";
+import burgerWithoutBg from "@/assets/burgerWithoutBg.png";
+import shawarmaWithoutBg from "@/assets/shawarmaWithoutBg2.png";
+import friedChickenWithoutBg from "@/assets/friedChickenWithoutBg2.png";
+import grillChickenWithoutBg from "@/assets/grillChickenWithoutBg.png";
+import chaiWithoutBg from "@/assets/chaiWithoutBg.png";
+import tikkaWithoutBg from "@/assets/tikkaWithoutBg.png";
+import founder from "@/assets/founder2.png";
+
+// Import menu images
+import zingerBurger from "@/assets/menus/burgers/zingerBurger.png";
+import specialClub from "@/assets/menus/clubSanwiches/specialClub.png";
+import alfBakeSpecialFalooda from "@/assets/menus/Desserts/alfBakeSpecialFalooda.png";
+import passionFruitMojito from "@/assets/menus/mojitos/passionFruitMojito.png";
 
 const menuItems = [
-  { id: "1", name: "Heritage Steak", price: "₹899", image: steak },
-  { id: "2", name: "Truffle Pasta", price: "₹699", image: pasta },
-  { id: "3", name: "Signature Burger", price: "₹499", image: burger },
-  { id: "4", name: "Lava Dessert", price: "₹399", image: dessert },
-  { id: "5", name: "Artisan Coffee", price: "₹249", image: coffee },
-  { id: "6", name: "Heirloom Salad", price: "₹349", image: salad },
+  {
+    id: "1",
+    name: "Zinger Burger",
+    price: "₹319",
+    image: zingerBurger,
+    category: "Burgers",
+    description:
+      "Spicy crispy chicken with hot sauce, fresh lettuce, and our signature mayo",
+  },
+  {
+    id: "2",
+    name: "Special Club",
+    price: "₹449",
+    image: specialClub,
+    category: "Club Sandwiches",
+    description:
+      "Chef's special club sandwich with premium ingredients and triple-decker bread",
+  },
+  {
+    id: "3",
+    name: "ALF BAKE Special Falooda",
+    price: "₹199",
+    image: alfBakeSpecialFalooda,
+    category: "Desserts",
+    description:
+      "House special falooda with rose syrup, vermicelli, and vanilla ice cream",
+  },
+  {
+    id: "4",
+    name: "Passion Fruit Mojito",
+    price: "₹219",
+    image: passionFruitMojito,
+    category: "Mojitos",
+    description:
+      "Tropical passion fruit mojito with fresh mint and a hint of lime",
+  },
 ];
 
+// Home page menu items (only 4 items for 2 rows)
+const homeMenuItems = menuItems.slice(0, 4);
+
+// ALF BAKE Specials data
 const specials = [
-  { id: "s1", title: "Chef's Tasting Plate", image: steak },
-  { id: "s2", title: "Truffle Indulgence", image: pasta },
-  { id: "s3", title: "Molten Chocolate", image: dessert },
+  {
+    id: "1",
+    name: "ALF BAKE ZINGER BURGER",
+    description:
+      "A crunchy, golden-fried chicken fillet stacked with fresh lettuce, tangy mayo, and melted cheese, all inside a soft toasted bun. Served with crispy fries for the perfect bite.",
+    image: burgerWithoutBg,
+    category: "burger",
+  },
+  {
+    id: "6",
+    name: "BROASTED CHICKEN CRUNCH",
+    description:
+      "Crispy on the outside, juicy on the inside—our broasted chicken is marinated in spices and pressure-fried to perfection. Served with coleslaw, fries, and a touch of ALFBAKE magic.",
+    image: friedChickenWithoutBg,
+    category: "chicken",
+  },
+  {
+    id: "2",
+    name: "TIKKA & BBQ PLATTER",
+    description:
+      "Juicy, marinated chicken tikka and smoky BBQ cuts grilled to perfection. Paired with flavorful dips, fresh salad, and warm pita for an authentic Middle Eastern touch.",
+    image: tikkaWithoutBg,
+    category: "main",
+  },
+  {
+    id: "3",
+    name: "ALF BAKE SIGNATURE GRILLS",
+    description:
+      "A chef's special mix of tender grilled meats, seasoned with our secret spice blend. Served with roasted vegetables, hummus, and fresh bread straight from the oven.",
+    image: grillChickenWithoutBg,
+    category: "grill",
+  },
+  {
+    id: "4",
+    name: "CLASSIC SHAWARMA WRAP",
+    description:
+      "Soft, warm pita wrapped around juicy marinated chicken, fresh veggies, and our creamy garlic sauce. Served with golden fries and pickled sides for a true street-food favorite.",
+    image: shawarmaWithoutBg,
+    category: "wrap",
+  },
+  {
+    id: "5",
+    name: "ALF BAKE SPECIAL KARAK TEA",
+    description:
+      "Rich, creamy Karak brewed with strong black tea, cardamom, and a hint of saffron. A comforting cup that brings the authentic taste of the Middle East to your table.",
+    image: chaiWithoutBg,
+    category: "beverage",
+  },
 ];
 
 const Index = () => {
   return (
-    <div className="space-y-32">
-      <Helmet>
-        <title>ALFBAKE Resto Cafe | Luxury Dining & Heritage</title>
-        <meta
-          name="description"
-          content="Experience ALFBAKE: a premium resto cafe with a rich story. Explore our menu, specials, and authentic heritage."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
-
-      {/* Hero */}
-      <HeroCarousel />
-
-      {/* Authenticity / Our Story CTA */}
-      <section className="bg-black py-18">
-        <div className="container">
-          <div className="grid md:grid-cols-5 gap-12 items-center">
-            {/* Image - 40% of space */}
-            <div className="md:col-span-2">
-              <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  src={hero1}
-                  alt="Authentic ambience at ALFBAKE"
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-            </div>
-
-            {/* Text content - 60% of space */}
-            <div className="md:col-span-3 space-y-8">
-              <div className="space-y-4">
-                <h2 className="font-roboto font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em]">
-                  About
-                </h2>
-                <h2 className="font-roboto font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em]">
-                  Alf-baik
-                </h2>
-                <p className="font-script text-2xl md:text-3xl text-gold text-center md:text-left">
-                  Decades of Delivering Delights
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <p className="text-foreground/90 text-lg md:text-xl leading-relaxed">
-                  From the first ̰ˇ sizzle to the final garnish, we honor
-                  tradition with modern technique. Established in 1939, ALFBAKE
-                  has been crafting innovative fusions of multinational cuisines
-                  while preserving the authentic flavors that define our
-                  heritage.
-                </p>
-                <p className="text-foreground/90 text-lg md:text-xl leading-relaxed">
-                  Our commitment to excellence spans generations, bringing you
-                  the perfect blend of time-honored recipes and contemporary
-                  culinary artistry.
-                </p>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  to="/alfbake/ourstory"
-                  className="inline-flex items-center gap-2 text-red-600 hover:text-red-500 font-medium text-lg underline transition-colors"
-                >
-                  Our Story →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Full width image section */}
-      <section className="relative w-full h-screen">
-        <div className="absolute inset-0">
-          <img
-            src={hero2}
-            alt="Highly demanded resto cafe"
-            className=" object-contain md:object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
-        </div>
-        <div className="relative h-full flex items-center justify-end">
-          <div className="max-w-2xl mr-8 lg:mr-16 xl:mr-24 space-y-8 text-center">
-            <h2 className="font-roboto font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em]">
-              A Journey of Bold Flavor
-            </h2>
-
-            <div className="space-y-4">
-              <p className="font-mozilla text-base md:text-lg lg:text-xl text-foreground/80 leading-relaxed font-light">
-                From the culinary roots of Alfain Restaurant in Calicut, Kerala,
-                comes a fresh chapter in Bahrain’s dining scene — Alfbake. Born
-                from a vision to present Middle Eastern food in a way never
-                experienced before, Alfbake pairs time-honored recipes with
-                creative craftsmanship, offering an experience that is as warm
-                and welcoming as it is exciting and new.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Menu */}
-      <section className="py-18">
-        <div className="container">
-          <h2 className="font-graphik [-webkit-text-fill-color:transparent] [-webkit-text-stroke:1px_#fff] text-6xl md:text-8xl lg:text-9xl xl:text-[120px] leading-[120px] text-center mb-16 tracking-[0.1em] font-normal">
-            OUR MENU
-          </h2>
-          <MenuGrid items={menuItems} />
-        </div>
-      </section>
-
-      {/* Legacy banner linking to story */}
-      <section className="py-18">
-        <div className="container">
-          <h2 className="font-graphik [-webkit-text-fill-color:transparent] [-webkit-text-stroke:1px_#fff] text-6xl md:text-8xl lg:text-9xl xl:text-[120px] leading-[120px] text-center mb-16 tracking-[0.1em] font-normal">
-            A LEGACY OF EXCELLENCE
-          </h2>
-          <div className="relative overflow-hidden rounded-2xl border border-border/60">
-            <img
-              src={coffee}
-              alt="Legacy and features of ALFBAKE"
-              className="h-[360px] w-full object-cover"
+    <GlobalAnimations>
+      <HomeAnimations>
+        <div className="space-y-48">
+          <Helmet>
+            <title>ALF BAKE | Luxury Dining & Heritage</title>
+            <meta
+              name="description"
+              content="Experience ALF BAKE: a premium resto cafe with a rich story. Explore our menu, specials, and authentic heritage."
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <p className="font-script text-accent text-3xl md:text-4xl">
-                A legacy of excellence
-              </p>
-              <Link
-                to="/alfbake/ourstory"
-                className="underline hover:text-accent text-lg font-medium"
-              >
-                Discover our story
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            <link rel="canonical" href="/" />
+          </Helmet>
 
-      {/* Specials */}
-      <section className="py-18">
-        <div className="container">
-          <h2 className="font-culinary [-webkit-text-fill-color:transparent] [-webkit-text-stroke:1px_#fff] text-6xl md:text-8xl lg:text-9xl xl:text-[120px] leading-[120px] text-center mb-16 tracking-[0.1em] font-normal">
-            CHEF'S SPECIALS
-          </h2>
-          <SpecialsHover items={specials} />
+          {/* Hero */}
+          <HeroCarousel />
+
+          {/* Authenticity / Our Story CTA */}
+          <section className="bg-black py-24 relative">
+            <div className="absolute inset-0">
+              <img
+                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                alt="Background texture"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            </div>
+            <div className="relative z-10">
+              <div className="container">
+                <div className="grid md:grid-cols-5 gap-12 items-center">
+                  {/* Image - 40% of space */}
+                  <div className="md:col-span-2">
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <img
+                        src={hero1}
+                        alt="Authentic ambience at ALF BAKE"
+                        className="w-full h-[700px] object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    </div>
+                  </div>
+
+                  {/* Text content - 60% of space */}
+                  <div className="md:col-span-3 space-y-8">
+                    <div
+                      className={`space-y-4 ${homeAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "0.2s" }}
+                    >
+                      <h2
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                      >
+                        ABOUT ALF BAKE
+                      </h2>
+                      <p
+                        className={`font-script text-2xl md:text-3xl text-red-600 text-center md:text-left ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "0.4s" }}
+                      >
+                        Crafting Flavors, Creating Memories
+                      </p>
+                    </div>
+
+                    <div
+                      className={`space-y-6 ${homeAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "0.6s" }}
+                    >
+                      <p
+                        className={`text-roboto md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "0.8s" }}
+                      >
+                        At ALF BAKE, we bring together decades of culinary
+                        heritage and a passion for innovation. Rooted in the
+                        kitchens of Afain Restaurant, Kerala, and presented in
+                        Bahrain by Bangaluru House, our story blends tradition
+                        with creativity.
+                      </p>
+                      <p
+                        className={`text-roboto md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "1.0s" }}
+                      >
+                        Our mission is simple — to honor authentic Middle
+                        Eastern flavors while reimagining them for today's food
+                        lovers. Every dish is crafted with heart, spices, and a
+                        touch of modern flair — offering an experience that
+                        feels both comfortingly familiar and excitingly new
+                      </p>
+                    </div>
+
+                    <div
+                      className={`text-center mt-12 ${homeAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "1.2s" }}
+                    >
+                      <Link
+                        to="alfbake/ourstory"
+                        className={`group inline-flex items-center gap-3 px-6 py-4 text-white bg-transparent border border-gray-600 rounded-full font-medium tracking-wide hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 ease-out shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] ${globalAnimationClasses.buttonBreathing}`}
+                        style={{ animationDelay: "1.4s" }}
+                      >
+                        <span className="text-sm uppercase tracking-wider">
+                          Our story
+                        </span>
+                        <div className="relative w-8 h-8 rounded-full border border-gray-600 group-hover:border-red-500 transition-colors duration-300">
+                          <svg
+                            className="w-4 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:translate-x-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* A Journey of Bold Flavor Section */}
+          <section className="bg-black py-24 relative">
+            <div className="absolute inset-0">
+              <img
+                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                alt="Background texture"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            </div>
+            <div className="relative z-10">
+              <div className="container">
+                <div className="grid md:grid-cols-5 gap-12 items-center">
+                  {/* Text content - 60% of space */}
+                  <div className="md:col-span-3 space-y-8">
+                    <div
+                      className={`space-y-4 ${ourStoryAnimationClasses.headingSlideUp}`}
+                    >
+                      <h2
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                      >
+                        A Journey of Bold Flavor
+                      </h2>
+                      <p
+                        className={`font-script text-2xl md:text-3xl text-red-600 text-center md:text-left ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        From Kerala's Heritage to Bahrain's Future
+                      </p>
+                    </div>
+
+                    <div
+                      className={`space-y-6 ${homeAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "0.8s" }}
+                    >
+                      <p
+                        className={`text-roboto md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "1.0s" }}
+                      >
+                        From the culinary roots of Alfain Restaurant in Calicut,
+                        Kerala, comes a fresh chapter in Bahrain's dining scene
+                        — ALF BAKE. Born from a vision to present Middle Eastern
+                        food in a way never experienced before, ALF BAKE pairs
+                        time-honored recipes with creative craftsmanship,
+                        offering an experience that is as warm and welcoming as
+                        it is exciting and new.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Image - 40% of space */}
+                  <div
+                    className={`md:col-span-2 ${homeAnimationClasses.fadeInRight}`}
+                    style={{ animationDelay: "1.2s" }}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <img
+                        src={hero2}
+                        alt="Highly demanded resto cafe"
+                        className="w-full h-[700px] object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Fresh Service Section */}
+          <section className="relative w-full min-h-screen md:h-screen">
+            <div className="absolute inset-0">
+              <img
+                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                alt="Textured dark background"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            </div>
+            <div className="relative min-h-screen md:h-full flex items-center justify-center">
+              <div className="max-w-6xl mx-auto px-6 py-20 md:py-0">
+                <div
+                  className={`text-center mb-16 ${homeAnimationClasses.fadeInUp}`}
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <h2
+                    className={`font-roboto text-center font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                  >
+                    HERE WE SERVE YOU FRESH
+                  </h2>
+                  <p
+                    className={`font-script text-2xl md:text-3xl text-red-600 mb-8 ${globalAnimationClasses.headingImmediate}`}
+                  >
+                    At ALF BAKE, every bite is crafted with care using
+                    handpicked ingredients and recipes made to please every
+                    craving
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Feature 1 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "100ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500">
+                      <svg
+                        className="w-20 h-20 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      Always Fresh, Never Compromised
+                    </h3>
+                  </div>
+
+                  {/* Feature 2 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "200ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500">
+                      <svg
+                        className="w-20 h-20 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      No Reuse of Oil — Only Clean Cooking Every Time
+                    </h3>
+                  </div>
+
+                  {/* Feature 3 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "300ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500 p-2">
+                      <svg
+                        className="w-16 h-16 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      Soft, House-Baked Buns & Breads
+                    </h3>
+                  </div>
+
+                  {/* Feature 4 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "400ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500">
+                      <svg
+                        className="w-20 h-20 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      We Cook on Orders
+                    </h3>
+                  </div>
+
+                  {/* Feature 5 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "500ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500">
+                      <svg
+                        className="w-20 h-20 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      Never Frozen Meat
+                    </h3>
+                  </div>
+
+                  {/* Feature 6 */}
+                  <div
+                    className={`text-center p-8 rounded-lg group ${homeAnimationClasses.fadeInUp}`}
+                    style={{ animationDelay: "600ms" }}
+                  >
+                    <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-transparent border border-gray-600 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:border-red-500">
+                      <svg
+                        className="w-20 h-20 text-custom-grey group-hover:text-red-600 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      className={`font-script text-xl md:text-2xl lg:text-3xl text-custom-grey mb-2 ${globalAnimationClasses.headingImmediate}`}
+                    >
+                      100% Halal Meat
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Menu */}
+          <section className="py-24 relative">
+            <div className="absolute inset-0">
+              <img
+                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                alt="Background texture"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            </div>
+            <div className="relative z-10">
+              <div className="container">
+                <div
+                  className={`text-center mb-6 ${homeAnimationClasses.fadeInUp}`}
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <h2
+                    className={`font-roboto text-center font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                  >
+                    OUR MENU
+                  </h2>
+                </div>
+                <MenuGrid items={homeMenuItems} />
+                <div
+                  className={`text-center mt-12 ${homeAnimationClasses.fadeInUp}`}
+                  style={{ animationDelay: "400ms" }}
+                >
+                  <Link
+                    to="/menu"
+                    className={`group inline-flex items-center gap-3 px-6 py-4 text-white bg-transparent border border-gray-600 rounded-full font-medium tracking-wide hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 ease-out shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] ${globalAnimationClasses.buttonBreathing}`}
+                  >
+                    <span className="text-sm uppercase tracking-wider">
+                      view full menu
+                    </span>
+                    <div className="relative w-8 h-8 rounded-full border border-gray-600 group-hover:border-red-500 transition-colors duration-300">
+                      <svg
+                        className="w-4 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:translate-x-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ALF BAKE Specials - Redesigned */}
+          <section className="bg-black py-20 px-6 relative">
+            <div className="absolute inset-0 bg-gradient-to-l from-red-700/6 via-red-800/15 to-red-900/20 blur-3xl"></div>
+            <div className="relative z-10">
+              <div className="max-w-7xl mx-auto">
+                {/* Section Header */}
+                <div
+                  className={`text-center mb-16 ${homeAnimationClasses.fadeInUp}`}
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <h2
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
+                  >
+                    ALF BAKE'S SPECIALS
+                  </h2>
+                  <div className="w-24 h-1 bg-red-600 mx-auto"></div>
+                </div>
+
+                {/* Menu Items - Vertical Stack */}
+                <div className="space-y-24">
+                  {specials.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className={`flex flex-col lg:flex-row ${
+                        index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                      } gap-12 items-center group ${
+                        homeAnimationClasses.specialSlideUp
+                      }`}
+                      style={{ animationDelay: `${index * 200}ms` }}
+                    >
+                      {/* Image Container */}
+                      <div
+                        className={`relative flex-shrink-0 ${
+                          item.id === "1"
+                            ? "w-[900px] h-[900px]"
+                            : item.id === "5"
+                            ? "w-[1000px] h-[1000px]"
+                            : item.id === "2"
+                            ? "w-[600px] h-[600px]"
+                            : item.id === "6"
+                            ? "w-[750px] h-[750px]"
+                            : "w-[750px] h-[750px]"
+                        }`}
+                      >
+                        <div className="relative w-full h-full overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className={`w-full h-full object-contain transform group-hover:scale-110 transition-all duration-700 ease-out ${homeAnimationClasses.fadeInScale}`}
+                            style={{ animationDelay: `${index * 200 + 100}ms` }}
+                          />
+                        </div>
+
+                        {/* Decorative spice/herb elements */}
+                        <div className="absolute -top-4 -right-4 w-3 h-3 bg-red-600/60 rounded-full"></div>
+                        <div className="absolute -bottom-6 -left-6 w-4 h-4 bg-red-600/40 rounded-full"></div>
+                        <div className="absolute top-8 -left-8 w-2 h-2 bg-red-600/50 rounded-full"></div>
+                      </div>
+
+                      {/* Content */}
+                      <div
+                        className={`flex-1 flex flex-col items-center justify-center ${
+                          index % 2 === 1 ? "lg:items-end" : "lg:items-start"
+                        }`}
+                      >
+                        <div className="w-full max-w-lg lg:w-[91%] text-center">
+                          <h3
+                            className={`font-roboto text-5xl font-bold text-gray-300 mb-8 tracking-wider uppercase ${globalAnimationClasses.headingImmediate}`}
+                            style={{ animationDelay: `${index * 200 + 300}ms` }}
+                          >
+                            {item.name}
+                          </h3>
+
+                          <p
+                            className={`text-custom-grey leading-relaxed text-2xl mb-10 font-script ${homeAnimationClasses.fadeInUp}`}
+                            style={{ animationDelay: `${index * 200 + 500}ms` }}
+                          >
+                            {item.description}
+                          </p>
+
+                          {/* Decorative Line */}
+                          <div className="flex items-center gap-4 justify-center">
+                            <div className="w-12 h-px bg-red-600"></div>
+                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                            <div className="w-8 h-px bg-red-600/60"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Decorative Text */}
+                <div className="text-center mt-20">
+                  <Link
+                    to="/menu"
+                    className={`group inline-flex items-center gap-3 px-6 py-4 text-white bg-transparent border border-gray-600 rounded-full font-medium tracking-wide hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 ease-out shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] ${globalAnimationClasses.buttonBreathing}`}
+                  >
+                    <span className="text-sm uppercase tracking-wider">
+                      explore full menu
+                    </span>
+                    <div className="relative w-8 h-8 rounded-full border border-gray-600 group-hover:border-red-500 transition-colors duration-300">
+                      <svg
+                        className="w-4 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:translate-x-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Background Decorative Elements */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-20 left-10 w-2 h-2 bg-red-600/30 rounded-full animate-pulse"></div>
+                <div className="absolute top-40 right-20 w-1 h-1 bg-red-600/40 rounded-full animate-pulse delay-1000"></div>
+                <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-red-600/20 rounded-full animate-pulse delay-2000"></div>
+                <div className="absolute bottom-20 right-1/3 w-1 h-1 bg-red-600/50 rounded-full animate-pulse delay-500"></div>
+              </div>
+            </div>
+          </section>
+
+          {/* The Heart Behind ALF BAKE Section */}
+          <section className="relative w-full min-h-screen md:h-screen py-18">
+            <div className="absolute inset-0">
+              <img
+                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                alt="Textured dark background"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            </div>
+            <div className="relative min-h-screen md:h-full flex items-center justify-center">
+              <div className="max-w-7xl mx-auto px-6 py-20 md:py-0">
+                {/* Centered Header */}
+                <div
+                  className={`text-center mb-12 ${ourStoryAnimationClasses.headingSlideUp}`}
+                >
+                  <h2
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                  >
+                    OUR CULINERY COMPOSER
+                  </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4 items-center">
+                  {/* Left side - Owner's image */}
+                  <div
+                    className={`flex justify-center md:justify-center ${ourStoryAnimationClasses.fadeInLeft}`}
+                    style={{ animationDelay: "0.6s" }}
+                  >
+                    <div className="relative">
+                      <img
+                        src={founder}
+                        alt="Sumesh Govind - CEO & Culinary Composer"
+                        className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
+                      />
+                      <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
+                    </div>
+                  </div>
+
+                  {/* Right side - Description */}
+                  <div
+                    className={`text-center md:text-left space-y-8 ${ourStoryAnimationClasses.fadeInRight}`}
+                    style={{ animationDelay: "0.8s" }}
+                  >
+                    <div
+                      className={`space-y-4 ${ourStoryAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "1.0s" }}
+                    >
+                      <p
+                        className={`text-xl md:text-4xl font-script text-red-600 ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "1.2s" }}
+                      >
+                        Muhthar Palathumannil
+                      </p>
+                      <p
+                        className={`text-lg md:text-xl text-custom-gray-450 [text-shadow:0_0_10px_rgba(239,68,68,0.8)] ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "1.4s" }}
+                      >
+                        Founder & Culinary Visionary
+                      </p>
+                    </div>
+
+                    <div
+                      className={`space-y-6 ${ourStoryAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "1.6s" }}
+                    >
+                      <p
+                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "1.8s" }}
+                      >
+                        Every great restaurant has a story — and ALF BAKE's
+                        begins with the journey of Muthhar Palathumannil.
+                      </p>
+                      <p
+                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "2.0s" }}
+                      >
+                        Born and raised in India, Muthhar's earliest memories
+                        are filled with the aromas of home-cooked meals and the
+                        joy of feeding others. He began cooking for his family
+                        at a young age, unknowingly planting the seeds for a
+                        lifelong passion.
+                      </p>
+                      <p
+                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "2.2s" }}
+                      >
+                        In 2004, he moved to Saudi Arabia, working various jobs
+                        before life led him back to his true calling — food.
+                        Defying family expectations, he followed his heart into
+                        the restaurant world, where his talent and creativity
+                        flourished
+                      </p>
+                      <p
+                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        style={{ animationDelay: "2.4s" }}
+                      >
+                        ALF BAKE is the result of that journey — a place where
+                        his heritage meets his vision, where Middle Eastern
+                        flavors are celebrated, reimagined, and served with
+                        genuine warmth. It's a reflection not just of his skill,
+                        but of his belief that food is an experience to be
+                        savored and shared.
+                      </p>
+
+                      <div
+                        className={`border-l-4 border-red-600 pl-6 py-4 ${ourStoryAnimationClasses.fadeInUp}`}
+                        style={{ animationDelay: "2.6s" }}
+                      >
+                        <p
+                          className={`text-base md:text-lg lg:text-xl text-red-600 italic leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                          style={{ animationDelay: "2.8s" }}
+                        >
+                          "Cooking is an art. The more joy one takes in
+                          preparing the food, the tastier it will be on the
+                          table."
+                        </p>
+                        <p
+                          className={`text-sm md:text-base text-red-600 italic mt-2 ${globalAnimationClasses.headingImmediate}`}
+                          style={{ animationDelay: "3.0s" }}
+                        >
+                          — Muhthar Palathumannil
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`pt-4 ${ourStoryAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "3.2s" }}
+                    >
+                      <Link
+                        to="/alfbake/ourstory"
+                        className={`group inline-flex items-center gap-3 px-6 py-4 text-white bg-transparent border border-gray-600 rounded-full font-medium tracking-wide hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 ease-out shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] ${globalAnimationClasses.buttonBreathing}`}
+                      >
+                        <span className="text-sm uppercase tracking-wider">
+                          Read More
+                        </span>
+                        <div className="relative w-8 h-8 rounded-full border border-gray-600 group-hover:border-red-500 transition-colors duration-300">
+                          <svg
+                            className="w-4 h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:translate-x-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </HomeAnimations>
+    </GlobalAnimations>
   );
 };
 

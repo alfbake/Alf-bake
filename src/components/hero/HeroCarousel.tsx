@@ -16,50 +16,39 @@ import foodDessert from "@/assets/food-dessert.jpg";
 import foodPasta from "@/assets/food-pasta.jpg";
 import foodSalad from "@/assets/food-salad.jpg";
 import foodSteak from "@/assets/food-steak.jpg";
+import ClubSandwich from "@/assets/clubSandwichDemo.png";
 
 const slides = [
   {
-    type: "video",
-    src: "/media/hero.mp4",
-    poster: hero1,
-    heading: "Awaken Your Senses",
-    sub: "Signature brews & baked artistry",
+    type: "image",
+    src: foodBurger,
+    heading: "Burgers, Reimagined",
+    sub: "Stacked high with flavor, crafted our way",
   },
   {
     type: "image",
     src: foodSteak,
-    heading: "Fire & Flavor",
-    sub: "Prime cuts seared to perfection",
-  },
-  {
-    type: "image",
-    src: foodPasta,
-    heading: "Handcrafted Comfort",
-    sub: "Silky pastas, rich sauces",
+    heading: "From the Flames",
+    sub: "Grills & kebabs with bold Middle Eastern soul",
   },
   {
     type: "image",
     src: foodDessert,
-    heading: "Sweet Finish",
-    sub: "Decadent desserts, artfully plated",
+    heading: "A Sweet Pause",
+    sub: "Indulgent bites to complete your feast",
   },
   {
     type: "image",
     src: foodSalad,
-    heading: "Garden Fresh",
-    sub: "Vibrant, seasonal produce",
+    heading: "Fresh Starts",
+    sub: "Crisp, colorful sides made to share",
   },
-  {
-    type: "image",
-    src: foodBurger,
-    heading: "Stacked & Savory",
-    sub: "Gourmet burgers, towering taste",
-  },
+
   {
     type: "image",
     src: foodCoffee,
-    heading: "Pouring Perfection",
-    sub: "Third-wave coffee rituals",
+    heading: "Sip the Moment",
+    sub: "Refreshing brews & cool blends to revive you",
   },
 ];
 
@@ -70,38 +59,26 @@ const HeroCarousel = () => {
         <Carousel
           className="h-full"
           opts={{ loop: true }}
-          plugins={[Autoplay({ delay: 4500, stopOnMouseEnter: true })]}
+          plugins={[Autoplay({ delay: 3000, stopOnMouseEnter: true })]}
         >
           <CarouselContent className="h-full">
             {slides.map((s, i) => (
               <CarouselItem key={i} className="h-screen">
                 <div className="relative h-full w-full">
-                  {s.type === "video" ? (
-                    <video
-                      className="h-full w-full object-cover"
-                      src={(s as any).src}
-                      poster={(s as any).poster}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={(s as any).src}
-                      alt={`ALFBAKE ambience ${i}`}
-                      className="h-full w-full object-cover"
-                      loading={i === 0 ? "eager" : "lazy"}
-                    />
-                  )}
+                  <img
+                    src={(s as any).src}
+                    alt={`ALF BAKE ${(s as any).heading}`}
+                    className="h-full w-full object-cover"
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
                   {/* Slide caption */}
                   <div className="absolute inset-0 flex items-center p-6 md:p-10 lg:p-16">
                     <div className="max-w-4xl space-y-6 animate-fade-in">
-                      <h2 className="font-poppins  uppercase tracking-[0.1em] font-bold  text-3xl md:text-6xl lg:text-8xl leading-tight drop-shadow-2xl shadow-black/50">
+                      <h2 className="font-roboto uppercase tracking-[0.1em] font-bold text-3xl md:text-6xl lg:text-8xl leading-tight drop-shadow-2xl shadow-black/50 text-white">
                         {(s as any).heading}
                       </h2>
-                      <p className="font-poppins md:text-xl lg:text-2xl text-foreground/90 font-medium drop-shadow-lg shadow-black/50">
+                      <p className="font-script md:text-xl lg:text-4xl text-white font-medium drop-shadow-lg shadow-black/20">
                         {(s as any).sub}
                       </p>
                     </div>
@@ -110,11 +87,15 @@ const HeroCarousel = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 border-accent/40" />
-          <CarouselNext className="right-4 top-1/2 -translate-y-1/2 border-accent/40" />
-        </Carousel>
 
-        {/* Centered emblem */}
+          {/* Custom Navigation Buttons */}
+          <div className="absolute left-16 top-1/2 -translate-y-1/2">
+            <CarouselPrevious className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500 text-white hover:text-red-600" />
+          </div>
+          <div className="absolute right-16 top-1/2 -translate-y-1/2">
+            <CarouselNext className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500 text-white hover:text-red-600" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );

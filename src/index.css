@@ -15,7 +15,6 @@ All colors MUST be HSL.
   :root {
     /* Brand tokens */
     --brand-red: 5 64% 47%;
-    --gold: 43 74% 49%;
     --warm-brown: 25 76% 31%;
     --deep-black: 0 0% 10%;
     --charcoal: 0 0% 17%;
