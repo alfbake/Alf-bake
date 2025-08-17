@@ -16,7 +16,7 @@ import burgerWithoutBg from "@/assets/burgerWithoutBg.png";
 import shawarmaWithoutBg from "@/assets/shawarmaWithoutBg2.png";
 import friedChickenWithoutBg from "@/assets/friedChickenWithoutBg2.png";
 import grillChickenWithoutBg from "@/assets/grillChickenWithoutBg.png";
-import chaiWithoutBg from "@/assets/chaiWithoutBg.png";
+import chaiWithoutBg from "@/assets/chaiWIthoutBg.png";
 import tikkaWithoutBg from "@/assets/tikkaWithoutBg.png";
 import founder from "@/assets/founder2.png";
 
