@@ -65,7 +65,7 @@ const HeroCarousel = () => {
                   {/* Slide caption */}
                   <div className="absolute inset-0 flex items-center p-6 md:p-10 lg:p-16">
                     <div className="max-w-4xl space-y-6 animate-fade-in">
-                      <h2 className="font-roboto uppercase tracking-[0.1em] font-bold text-3xl md:text-8xl lg:text-8xl leading-tight drop-shadow-2xl shadow-black/50 text-white">
+                      <h2 className="font-roboto uppercase tracking-[0.1em] font-bold text-3xl md:text-7xl lg:text-9xl leading-tight drop-shadow-2xl shadow-black/50 text-white">
                         {(s as any).heading}
                       </h2>
                       <p className="font-script md:text-xl lg:text-4xl text-white font-medium drop-shadow-lg shadow-black/20">

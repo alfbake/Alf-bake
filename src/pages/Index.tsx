@@ -155,7 +155,7 @@ const Index = () => {
                       style={{ animationDelay: "0.2s" }}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         ABOUT ALF BAKE
                       </h2>
@@ -247,7 +247,7 @@ const Index = () => {
                       className={`space-y-4 ${ourStoryAnimationClasses.headingSlideUp}`}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         A Journey of Bold Flavor
                       </h2>
@@ -313,7 +313,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     HERE WE SERVE YOU FRESH
                   </h2>
@@ -510,7 +510,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     OUR MENU
                   </h2>
@@ -559,7 +559,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     ALF BAKE'S SPECIALS
                   </h2>
@@ -695,7 +695,7 @@ const Index = () => {
                   className={`text-center mb-12 ${ourStoryAnimationClasses.headingSlideUp}`}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     OUR CULINERY COMPOSER
                   </h2>

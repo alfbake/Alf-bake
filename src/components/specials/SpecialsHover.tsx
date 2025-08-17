@@ -15,7 +15,7 @@ const SpecialsHover: React.FC<SpecialsHoverProps> = ({ items }) => {
     <section className="container py-12" aria-labelledby="specials">
       <h2
         id="specials"
-        className="font-heading text-3xl md:text-4xl lg:text-4xl mb-6"
+        className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6"
       >
         ALF BAKE Specials
       </h2>

@@ -55,7 +55,7 @@ const Menu = () => {
             <div className="container relative z-10">
               <div className="text-center">
                 <h1
-                  className={`mt-8 text-black font-roboto font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] transition-all duration-700 ease-out ${
+                  className={`mt-8 md:mt-16 text-black font-roboto font-bold text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] transition-all duration-700 ease-out ${
                     isLoaded
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
