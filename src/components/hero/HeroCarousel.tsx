@@ -6,47 +6,37 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import logo from "@/assets/logo-emblem.png";
-import foodBurger from "@/assets/food-burger.jpg";
-import foodCoffee from "@/assets/food-coffee.jpg";
-import foodDessert from "@/assets/food-dessert.jpg";
-import foodPasta from "@/assets/food-pasta.jpg";
-import foodSalad from "@/assets/food-salad.jpg";
-import foodSteak from "@/assets/food-steak.jpg";
-import ClubSandwich from "@/assets/clubSandwichDemo.png";
+// Images are now served from public folder for better performance
 
 const slides = [
   {
     type: "image",
-    src: foodBurger,
+    src: "/food-burger.jpg",
     heading: "Burgers, Reimagined",
     sub: "Stacked high with flavor, crafted our way",
   },
   {
     type: "image",
-    src: foodSteak,
+    src: "/food-steak.jpg",
     heading: "From the Flames",
     sub: "Grills & kebabs with bold Middle Eastern soul",
   },
   {
     type: "image",
-    src: foodDessert,
+    src: "/food-dessert.jpg",
     heading: "A Sweet Pause",
     sub: "Indulgent bites to complete your feast",
   },
   {
     type: "image",
-    src: foodSalad,
+    src: "/food-salad.jpg",
     heading: "Fresh Starts",
     sub: "Crisp, colorful sides made to share",
   },
 
   {
     type: "image",
-    src: foodCoffee,
+    src: "/food-coffee.jpg",
     heading: "Sip the Moment",
     sub: "Refreshing brews & cool blends to revive you",
   },
@@ -75,7 +65,7 @@ const HeroCarousel = () => {
                   {/* Slide caption */}
                   <div className="absolute inset-0 flex items-center p-6 md:p-10 lg:p-16">
                     <div className="max-w-4xl space-y-6 animate-fade-in">
-                      <h2 className="font-roboto uppercase tracking-[0.1em] font-bold text-3xl md:text-6xl lg:text-8xl leading-tight drop-shadow-2xl shadow-black/50 text-white">
+                      <h2 className="font-roboto uppercase tracking-[0.1em] font-bold text-3xl md:text-8xl lg:text-8xl leading-tight drop-shadow-2xl shadow-black/50 text-white">
                         {(s as any).heading}
                       </h2>
                       <p className="font-script md:text-xl lg:text-4xl text-white font-medium drop-shadow-lg shadow-black/20">

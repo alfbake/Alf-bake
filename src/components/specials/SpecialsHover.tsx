@@ -13,7 +13,10 @@ interface SpecialsHoverProps {
 const SpecialsHover: React.FC<SpecialsHoverProps> = ({ items }) => {
   return (
     <section className="container py-12" aria-labelledby="specials">
-      <h2 id="specials" className="font-heading text-3xl md:text-4xl mb-6">
+      <h2
+        id="specials"
+        className="font-heading text-3xl md:text-4xl lg:text-4xl mb-6"
+      >
         ALF BAKE Specials
       </h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

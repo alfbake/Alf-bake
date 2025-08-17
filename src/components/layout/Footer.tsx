@@ -7,7 +7,7 @@ import {
   Mail,
   X,
 } from "lucide-react";
-import footerBg from "@/assets/footernew.png";
+// Images are now served from public folder for better performance
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={footerBg}
+          src="/footernew.png"
           alt="Footer background"
           className="w-full h-full object-cover"
         />

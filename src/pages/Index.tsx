@@ -10,28 +10,14 @@ import GlobalAnimations, {
   globalAnimationClasses,
 } from "@/components/ui/GlobalAnimations";
 import { ourStoryAnimationClasses } from "@/components/ui/OurStoryAnimations";
-import hero1 from "@/assets/friedchicken.png";
-import hero2 from "@/assets/burger2.png";
-import burgerWithoutBg from "@/assets/burgerWithoutBg.png";
-import shawarmaWithoutBg from "@/assets/shawarmaWithoutBg2.png";
-import friedChickenWithoutBg from "@/assets/friedChickenWithoutBg2.png";
-import grillChickenWithoutBg from "@/assets/grillChickenWithoutBg.png";
-import chaiWithoutBg from "@/assets/chaiWIthoutBg.png";
-import tikkaWithoutBg from "@/assets/tikkaWIthoutBg.png";
-import founder from "@/assets/founder2.png";
-
-// Import menu images
-import zingerBurger from "@/assets/menus/burgers/zingerBurger.png";
-import specialClub from "@/assets/menus/clubSanwiches/specialClub.png";
-import alfBakeSpecialFalooda from "@/assets/menus/Desserts/alfBakeSpecialFalooda.png";
-import passionFruitMojito from "@/assets/menus/mojitos/passionFruitMojito.png";
+// Images are now served from public folder for better performance
 
 const menuItems = [
   {
     id: "1",
     name: "Zinger Burger",
     price: "₹319",
-    image: zingerBurger,
+    image: "/menus/burgers/zingerBurger.png",
     category: "Burgers",
     description:
       "Spicy crispy chicken with hot sauce, fresh lettuce, and our signature mayo",
@@ -40,7 +26,7 @@ const menuItems = [
     id: "2",
     name: "Special Club",
     price: "₹449",
-    image: specialClub,
+    image: "/menus/clubSanwiches/specialClub.png",
     category: "Club Sandwiches",
     description:
       "Chef's special club sandwich with premium ingredients and triple-decker bread",
@@ -49,7 +35,7 @@ const menuItems = [
     id: "3",
     name: "ALF BAKE Special Falooda",
     price: "₹199",
-    image: alfBakeSpecialFalooda,
+    image: "/menus/Desserts/alfBakeSpecialFalooda.png",
     category: "Desserts",
     description:
       "House special falooda with rose syrup, vermicelli, and vanilla ice cream",
@@ -58,7 +44,7 @@ const menuItems = [
     id: "4",
     name: "Passion Fruit Mojito",
     price: "₹219",
-    image: passionFruitMojito,
+    image: "/menus/mojitos/passionFruitMojito.png",
     category: "Mojitos",
     description:
       "Tropical passion fruit mojito with fresh mint and a hint of lime",
@@ -75,7 +61,7 @@ const specials = [
     name: "ALF BAKE ZINGER BURGER",
     description:
       "A crunchy, golden-fried chicken fillet stacked with fresh lettuce, tangy mayo, and melted cheese, all inside a soft toasted bun. Served with crispy fries for the perfect bite.",
-    image: burgerWithoutBg,
+    image: "/burgerWithoutBg.png",
     category: "burger",
   },
   {
@@ -83,7 +69,7 @@ const specials = [
     name: "BROASTED CHICKEN CRUNCH",
     description:
       "Crispy on the outside, juicy on the inside—our broasted chicken is marinated in spices and pressure-fried to perfection. Served with coleslaw, fries, and a touch of ALFBAKE magic.",
-    image: friedChickenWithoutBg,
+    image: "/friedChickenWithoutBg2.png",
     category: "chicken",
   },
   {
@@ -91,7 +77,7 @@ const specials = [
     name: "TIKKA & BBQ PLATTER",
     description:
       "Juicy, marinated chicken tikka and smoky BBQ cuts grilled to perfection. Paired with flavorful dips, fresh salad, and warm pita for an authentic Middle Eastern touch.",
-    image: tikkaWithoutBg,
+    image: "/tikkaWIthoutBg.png",
     category: "main",
   },
   {
@@ -99,7 +85,7 @@ const specials = [
     name: "ALF BAKE SIGNATURE GRILLS",
     description:
       "A chef's special mix of tender grilled meats, seasoned with our secret spice blend. Served with roasted vegetables, hummus, and fresh bread straight from the oven.",
-    image: grillChickenWithoutBg,
+    image: "/grillChickenWithoutBg.png",
     category: "grill",
   },
   {
@@ -107,7 +93,7 @@ const specials = [
     name: "CLASSIC SHAWARMA WRAP",
     description:
       "Soft, warm pita wrapped around juicy marinated chicken, fresh veggies, and our creamy garlic sauce. Served with golden fries and pickled sides for a true street-food favorite.",
-    image: shawarmaWithoutBg,
+    image: "/shawarmaWithoutBg2.png",
     category: "wrap",
   },
   {
@@ -115,7 +101,7 @@ const specials = [
     name: "ALF BAKE SPECIAL KARAK TEA",
     description:
       "Rich, creamy Karak brewed with strong black tea, cardamom, and a hint of saffron. A comforting cup that brings the authentic taste of the Middle East to your table.",
-    image: chaiWithoutBg,
+    image: "/chaiWIthoutBg.png",
     category: "beverage",
   },
 ];
@@ -154,7 +140,7 @@ const Index = () => {
                   <div className="md:col-span-2">
                     <div className="relative overflow-hidden rounded-2xl">
                       <img
-                        src={hero1}
+                        src="/friedchicken.png"
                         alt="Authentic ambience at ALF BAKE"
                         className="w-full h-[700px] object-cover"
                       />
@@ -169,7 +155,7 @@ const Index = () => {
                       style={{ animationDelay: "0.2s" }}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         ABOUT ALF BAKE
                       </h2>
@@ -261,7 +247,7 @@ const Index = () => {
                       className={`space-y-4 ${ourStoryAnimationClasses.headingSlideUp}`}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         A Journey of Bold Flavor
                       </h2>
@@ -298,7 +284,7 @@ const Index = () => {
                   >
                     <div className="relative overflow-hidden rounded-2xl">
                       <img
-                        src={hero2}
+                        src="/burger2.png"
                         alt="Highly demanded resto cafe"
                         className="w-full h-[700px] object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
                       />
@@ -327,7 +313,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto text-center font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     HERE WE SERVE YOU FRESH
                   </h2>
@@ -524,7 +510,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto text-center font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto text-center font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     OUR MENU
                   </h2>
@@ -573,7 +559,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     ALF BAKE'S SPECIALS
                   </h2>
@@ -709,7 +695,7 @@ const Index = () => {
                   className={`text-center mb-12 ${ourStoryAnimationClasses.headingSlideUp}`}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     OUR CULINERY COMPOSER
                   </h2>
@@ -723,7 +709,7 @@ const Index = () => {
                   >
                     <div className="relative">
                       <img
-                        src={founder}
+                        src="/founder2.png"
                         alt="Sumesh Govind - CEO & Culinary Composer"
                         className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
                       />

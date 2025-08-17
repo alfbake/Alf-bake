@@ -1,16 +1,10 @@
-import burgerMainSection from "@/assets/burgerMainSection.png";
-import clubSandwichMainSection from "@/assets/clubSandWichMainSection.png";
-import dessertMainSection from "@/assets/dessertMainSeciton.png";
-import juiceMainSection from "@/assets/juiceMainSection.png";
-import mainCourseMainSection from "@/assets/mainCouseMainSection.png";
-import mojitoMainSection from "@/assets/mojitoMainSection.png";
-import sandwichMainSection from "@/assets/sandwichMainSection.png";
+// Images are now served from public folder for better performance
 
 export const menuData = [
   {
     id: "burgers",
     title: "BURGERS",
-    image: burgerMainSection,
+    image: "/burgerMainSection.png",
     imagePosition: "right",
     items: [
       {
@@ -80,7 +74,7 @@ export const menuData = [
   {
     id: "club-sandwiches",
     title: "CLUB SANDWICHES",
-    image: clubSandwichMainSection,
+    image: "/clubSandWichMainSection.png",
     imagePosition: "left",
     items: [
       {
@@ -153,7 +147,7 @@ export const menuData = [
   {
     id: "main-course",
     title: "MAIN COURSE",
-    image: mainCourseMainSection,
+    image: "/mainCouseMainSection.png",
     imagePosition: "right",
     items: [
       {
@@ -236,7 +230,7 @@ export const menuData = [
   {
     id: "sandwiches",
     title: "SANDWICHES",
-    image: sandwichMainSection,
+    image: "/sandwichMainSection.png",
     imagePosition: "left",
     items: [
       {
@@ -319,7 +313,7 @@ export const menuData = [
   {
     id: "desserts",
     title: "DESSERTS",
-    image: dessertMainSection,
+    image: "/dessertMainSeciton.png",
     imagePosition: "right",
     items: [
       {
@@ -402,7 +396,7 @@ export const menuData = [
   {
     id: "fresh-juices",
     title: "FRESH JUICES",
-    image: juiceMainSection,
+    image: "/juiceMainSection.png",
     imagePosition: "left",
     items: [
       {
@@ -590,7 +584,7 @@ export const menuData = [
   {
     id: "mojitos",
     title: "MOJITOS",
-    image: mojitoMainSection,
+    image: "/mojitoMainSection.png",
     imagePosition: "right",
     items: [
       {

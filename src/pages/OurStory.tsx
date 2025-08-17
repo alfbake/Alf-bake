@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import founder from "@/assets/founder2.png";
+// Images are now served from public folder for better performance
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,12 +27,12 @@ const OurStory = () => {
           {/* Big Red Header */}
           <section
             className="relative py-16 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url(/src/assets/mainbanner.png)" }}
+            style={{ backgroundImage: "url(/mainbanner.png)" }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 via-red-800/15 to-red-900/20 blur-3xl"></div>
             <div className="relative z-10 container text-center">
               <h1
-                className={`mt-8 text-black font-roboto font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${ourStoryAnimationClasses.headerSlideDown}`}
+                className={`mt-8 text-black font-roboto font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${ourStoryAnimationClasses.headerSlideDown}`}
               >
                 OUR STORY
               </h1>
@@ -77,7 +77,7 @@ const OurStory = () => {
                     style={{ animationDelay: "0.2s" }}
                   >
                     <h2
-                      className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                      className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                     >
                       Our Heritage
                     </h2>
@@ -149,7 +149,7 @@ const OurStory = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     Rooted in Legacy
                   </h2>
@@ -215,7 +215,7 @@ const OurStory = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     OUR CULINERY COMPOSER
                   </h2>
@@ -229,7 +229,7 @@ const OurStory = () => {
                   >
                     <div className="relative">
                       <img
-                        src={founder}
+                        src="/founder2.png"
                         alt="Muhthar Palathumannil - Founder"
                         className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
                       />

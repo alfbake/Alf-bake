@@ -341,12 +341,12 @@ const ContactUs = () => {
         {/* Big Red Header */}
         <section
           className="relative py-16 bg-cover bg-center bg-no-repeat overflow-hidden"
-          style={{ backgroundImage: "url(/src/assets/mainbanner.png)" }}
+          style={{ backgroundImage: "url(/mainbanner.png)" }}
         >
           <div className="container relative z-10">
             <div className="text-center">
               <h1
-                className={`mt-8 text-black font-roboto font-bold text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] transition-all duration-1000 ease-out ${
+                className={`mt-8 text-black font-roboto font-bold text-5xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-normal tracking-[0.1em] transition-all duration-1000 ease-out ${
                   isLoaded
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
