@@ -198,7 +198,7 @@ const OurStory = () => {
           </section>
 
           {/* Culinary Composer Section */}
-          <section className="relative w-full min-h-screen md:h-screen py-18">
+          <section className="relative w-full min-h-screen md:min-h-screen lg:min-h-screen py-18 md:py-32 lg:py-40 md:pb-48 lg:pb-64">
             <div className="absolute inset-0">
               <img
                 src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
@@ -208,8 +208,8 @@ const OurStory = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
             </div>
 
-            <div className="relative min-h-screen md:h-full flex items-center justify-center">
-              <div className="max-w-7xl mx-auto px-6 py-20 md:py-0">
+            <div className="relative min-h-screen md:min-h-screen lg:min-h-screen flex items-center justify-center">
+              <div className="max-w-7xl mx-auto px-6 py-20 md:py-20 lg:py-20">
                 <div
                   className={`text-center mb-12 ${ourStoryAnimationClasses.fadeInUp}`}
                   style={{ animationDelay: "0.2s" }}
