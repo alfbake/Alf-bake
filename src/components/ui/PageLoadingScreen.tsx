@@ -22,70 +22,100 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
     // Reset states when component mounts or pageImages change
     setIsVisible(true);
     setProgress(0);
-    setLogoOpacity(isFirstLoad ? 0 : 1); // Show logo immediately if not first load
     setLoadedImages(0);
 
     // Set total images to load (including the logo)
     const totalToLoad = pageImages.length + 1; // +1 for logo
     setTotalImages(totalToLoad);
 
-    // Minimum loading time of 3 seconds
-    const minLoadingTime = 3000;
-    const startTime = Date.now();
+    // Check if images are cached by testing load times
+    const checkImageCache = async () => {
+      const testImage = pageImages[0] || IMAGEKIT_URLS.logo;
+      const startTime = Date.now();
 
-    // Progress animation with minimum time guarantee
-    const progressInterval = setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      const timeProgress = Math.min((elapsedTime / minLoadingTime) * 100, 90); // Cap at 90% for time-based progress
-
-      const imageProgress = (loadedImages / totalToLoad) * 100;
-      const combinedProgress = Math.min(
-        Math.max(timeProgress, imageProgress),
-        90
-      );
-
-      setProgress(combinedProgress);
-
-      // Show logo only when progress reaches 90% (only for first load)
-      if (isFirstLoad && combinedProgress >= 90 && logoOpacity === 0) {
-        setLogoOpacity(1);
-        setLoadedImages((prev) => prev + 1);
-      }
-    }, 50);
-
-    // Preload page images
-    const imagePromises = pageImages.map((src) => {
-      return new Promise<void>((resolve) => {
+      return new Promise<boolean>((resolve) => {
         const img = new Image();
         img.onload = () => {
-          setLoadedImages((prev) => prev + 1);
-          resolve();
+          const loadTime = Date.now() - startTime;
+          // If image loads very quickly (< 100ms), it's likely cached
+          resolve(loadTime < 100);
         };
-        img.onerror = () => {
-          // If image fails to load, still count it as loaded to avoid infinite loading
-          setLoadedImages((prev) => prev + 1);
-          resolve();
-        };
-        img.src = src;
+        img.onerror = () => resolve(false);
+        img.src = testImage;
       });
-    });
-
-    // Wait for all images to load and minimum time
-    Promise.all([
-      Promise.all(imagePromises),
-      new Promise((resolve) => setTimeout(resolve, minLoadingTime)),
-    ]).then(() => {
-      // Ensure progress reaches 100% before completing
-      setProgress(100);
-
-      // Complete loading immediately
-      setIsVisible(false);
-      onLoadingComplete();
-    });
-
-    return () => {
-      clearInterval(progressInterval);
     };
+
+    const initializeLoading = async () => {
+      const isCached = await checkImageCache();
+
+      // Show logo immediately if images are cached, otherwise wait for 90%
+      if (isCached) {
+        setLogoOpacity(1);
+        setLoadedImages(1); // Count logo as loaded
+      } else {
+        setLogoOpacity(0);
+      }
+
+      // Minimum loading time of 3 seconds
+      const minLoadingTime = 3000;
+      const startTime = Date.now();
+
+      // Progress animation with minimum time guarantee
+      const progressInterval = setInterval(() => {
+        const elapsedTime = Date.now() - startTime;
+        const timeProgress = Math.min((elapsedTime / minLoadingTime) * 100, 90); // Cap at 90% for time-based progress
+
+        const imageProgress = (loadedImages / totalToLoad) * 100;
+        const combinedProgress = Math.min(
+          Math.max(timeProgress, imageProgress),
+          90
+        );
+
+        setProgress(combinedProgress);
+
+        // Show logo only when progress reaches 90% (if not cached)
+        if (!isCached && combinedProgress >= 90 && logoOpacity === 0) {
+          setLogoOpacity(1);
+          setLoadedImages((prev) => prev + 1);
+        }
+      }, 50);
+
+      // Preload page images
+      const imagePromises = pageImages.map((src) => {
+        return new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            setLoadedImages((prev) => prev + 1);
+            resolve();
+          };
+          img.onerror = () => {
+            // If image fails to load, still count it as loaded to avoid infinite loading
+            setLoadedImages((prev) => prev + 1);
+            resolve();
+          };
+          img.src = src;
+        });
+      });
+
+      // Wait for all images to load and minimum time
+      Promise.all([
+        Promise.all(imagePromises),
+        new Promise((resolve) => setTimeout(resolve, minLoadingTime)),
+      ]).then(() => {
+        // Ensure progress reaches 100% before completing
+        setProgress(100);
+
+        // Complete loading immediately
+        setIsVisible(false);
+        onLoadingComplete();
+      });
+
+      return () => {
+        clearInterval(progressInterval);
+      };
+    };
+
+    initializeLoading();
   }, [pageImages, onLoadingComplete]);
 
   if (!isVisible) {
