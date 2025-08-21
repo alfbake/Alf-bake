@@ -47,6 +47,7 @@ export const IMAGEKIT_URLS = {
       "https://ik.imagekit.io/kwqtma9xf/AlfBake/food-salad.jpg?updatedAt=1755521190395",
     shawarmaWithoutBg:
       "https://ik.imagekit.io/kwqtma9xf/AlfBake/shawarmaWithoutBg2.png?updatedAt=1755521200031",
+    meat: "https://ik.imagekit.io/kwqtma9xf/AlfBake/food-steak.jpg?updatedAt=1755521194168",
   },
 
   // ALF BAKE Specials Section

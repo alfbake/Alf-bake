@@ -18,7 +18,7 @@ const slides = [
   },
   {
     type: "image",
-    src: IMAGEKIT_URLS.heroCarousel.foodDessert,
+    src: IMAGEKIT_URLS.heroCarousel.meat,
     heading: "From the Flames",
     sub: "Grills & kebabs with bold Middle Eastern soul",
   },
