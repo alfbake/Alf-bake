@@ -70,7 +70,7 @@ const Header = () => {
                       src={IMAGEKIT_URLS.logo}
                       alt="ALF BAKE logo"
                       className="h-20 w-22"
-                      loading="eager"
+                      loading="lazy"
                     />
                   </Link>
                   <div className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500">
@@ -231,7 +231,7 @@ const Header = () => {
                 src={IMAGEKIT_URLS.logo}
                 alt="ALF BAKE logo"
                 className="h-20 w-22"
-                loading="eager"
+                loading="lazy"
               />
             </Link>
 

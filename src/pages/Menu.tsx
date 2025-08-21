@@ -121,6 +121,7 @@ const Menu = () => {
                         src={section.image}
                         alt={`${section.title} at ALF BAKE`}
                         className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        loading="lazy"
                       />
                     </div>
                   </div>

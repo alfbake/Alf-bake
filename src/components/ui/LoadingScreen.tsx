@@ -78,6 +78,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
               src={IMAGEKIT_URLS.logo}
               alt="ALF BAKE Logo"
               className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl"
+              loading="eager"
             />
           </div>
 

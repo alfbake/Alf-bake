@@ -144,6 +144,7 @@ const Index = () => {
                         src={IMAGEKIT_URLS.other.friedchicken}
                         alt="Authentic ambience at ALF BAKE"
                         className="w-full h-[700px] object-cover"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     </div>
@@ -298,6 +299,7 @@ const Index = () => {
                         src={IMAGEKIT_URLS.mobileViewBoldFlavor.image}
                         alt="Highly demanded resto cafe"
                         className="w-full h-[800px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-contain sm:object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     </div>
@@ -609,6 +611,7 @@ const Index = () => {
                             alt={item.name}
                             className={`w-full h-full object-contain transform group-hover:scale-105 transition-all duration-700 ease-out ${homeAnimationClasses.fadeInScale}`}
                             style={{ animationDelay: `${index * 200 + 100}ms` }}
+                            loading="lazy"
                           />
                         </div>
 

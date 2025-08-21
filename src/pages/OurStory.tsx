@@ -68,6 +68,7 @@ const OurStory = () => {
                       src={IMAGEKIT_URLS.logo}
                       alt="ALF BAKE logo"
                       className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-contain"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
@@ -142,6 +143,7 @@ const OurStory = () => {
                 src={IMAGEKIT_URLS.ourStory.backgroundTexture}
                 alt="Background texture"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
             </div>
@@ -237,6 +239,7 @@ const OurStory = () => {
                           alt="Muhthar Palathumannil - Founder & Culinary Visionary"
                           className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
                           style={{ objectPosition: "top center" }}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
                       </div>
@@ -322,6 +325,7 @@ const OurStory = () => {
                           alt="Noushad Noor Mohammed - Founder & Business Visionary"
                           className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
                           style={{ objectPosition: "top center" }}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
                       </div>

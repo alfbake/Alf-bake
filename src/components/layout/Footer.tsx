@@ -19,6 +19,7 @@ const Footer = () => {
           src={IMAGEKIT_URLS.backgrounds.footernew}
           alt="Footer background"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
