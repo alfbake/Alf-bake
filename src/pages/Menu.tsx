@@ -97,9 +97,9 @@ const Menu = () => {
             >
               <div className="container">
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-12">
+                  <div className="text-center mb-8 sm:mb-12">
                     <h2
-                      className={`text-4xl font-script text-red-600 mb-2 transition-all duration-600 ease-out ${globalAnimationClasses.headingImmediate}`}
+                      className={`text-4xl sm:text-5xl md:text-5xl font-script text-red-600 mb-2 transition-all duration-600 ease-out ${globalAnimationClasses.headingImmediate}`}
                       style={{
                         animationDelay: `${index * 0.1}s`,
                         animation: "headingImmediate 0.8s ease-out forwards",
@@ -126,7 +126,7 @@ const Menu = () => {
                   </div>
 
                   <div
-                    className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ease-out ${
+                    className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center transition-all duration-700 ease-out ${
                       section.imagePosition === "left"
                         ? "lg:grid-flow-col-dense"
                         : ""
@@ -150,7 +150,7 @@ const Menu = () => {
                           >
                             <div className="flex-1">
                               <h3
-                                className="text-xl font-semibold mb-2 text-gray-200 transition-all duration-300 ease-out hover:text-red-400"
+                                className="text-lg sm:text-xl font-semibold mb-2 text-gray-200 transition-all duration-300 ease-out hover:text-red-400"
                                 style={{
                                   animation:
                                     "textGlow 2s ease-in-out infinite alternate",
@@ -158,7 +158,7 @@ const Menu = () => {
                               >
                                 {item.name}
                               </h3>
-                              <p className="text-gray-400 text-sm transition-all duration-300 ease-out hover:text-gray-300">
+                              <p className="text-gray-400 text-xs sm:text-sm transition-all duration-300 ease-out hover:text-gray-300">
                                 {item.description}
                               </p>
                             </div>

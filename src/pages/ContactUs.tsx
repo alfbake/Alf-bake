@@ -66,6 +66,7 @@ const ContactForm = () => {
       toast({
         title: "Message Sent Successfully!",
         description: "We'll get back to you soon.",
+        variant: "success",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
@@ -209,7 +210,9 @@ const ContactInfo = () => {
         <h3 className="text-sm font-medium text-red-500 mb-2 tracking-wider">
           KEEP CLOSE
         </h3>
-        <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-4">
+          Get In Touch
+        </h2>
         <p className="text-gray-400 leading-relaxed">
           We'd love to hear from you! Whether you have a question about our
           menu, want to make a reservation, or just want to share your dining
@@ -400,7 +403,7 @@ const ContactUs = () => {
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
                 <h2
-                  className={`text-4xl font-script text-red-600 mb-2 ${globalAnimationClasses.headingImmediate}`}
+                  className={`text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-script text-red-600 mb-2 ${globalAnimationClasses.headingImmediate}`}
                 >
                   Find Us
                 </h2>

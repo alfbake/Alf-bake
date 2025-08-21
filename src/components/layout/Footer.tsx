@@ -7,7 +7,8 @@ import {
   Mail,
   X,
 } from "lucide-react";
-// Images are now served from public folder for better performance
+import { IMAGEKIT_URLS } from "@/utils/constants";
+// Images are now served from ImageKit for better performance
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+          src={IMAGEKIT_URLS.backgrounds.footernew}
           alt="Footer background"
           className="w-full h-full object-cover"
         />
@@ -25,12 +26,12 @@ const Footer = () => {
       {/* Content */}
       <div className="relative z-10">
         <div className="container py-16">
-          {/* Top Section - 3 columns on mobile, 4 on desktop */}
-          <div className="grid grid-cols-3 gap-6 md:gap-12 md:grid-cols-4 mb-12">
-            {/* Quick Links Section */}
+          {/* Top Section - 2 columns on mobile, 4 on desktop */}
+          <div className="grid grid-cols-2 gap-6 md:gap-12 md:grid-cols-4 mb-12">
+            {/* Quick Links Section - Hidden on mobile */}
             <section
               aria-labelledby="quick-links"
-              className="text-center md:text-left"
+              className="hidden md:block text-center md:text-left"
             >
               <h3
                 id="quick-links"
@@ -114,7 +115,7 @@ const Footer = () => {
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500">
                     <Phone className="h-4 w-4 md:h-5 md:w-5 text-custom-grey group-hover:text-red-600 transition-colors duration-300" />
                   </div>
-                  <span className="font-roboto text-xs md:text-lg lg:text-xl text-custom-grey">
+                  <span className="font-roboto text-xs md:text-sm lg:text-base text-custom-grey">
                     (+973) 7790 9019
                   </span>
                 </li>
@@ -130,7 +131,7 @@ const Footer = () => {
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500">
                     <MapPin className="h-4 w-4 md:h-5 md:w-5 text-custom-grey group-hover:text-red-600 transition-colors duration-300" />
                   </div>
-                  <span className="font-roboto text-xs md:text-lg lg:text-xl text-custom-grey">
+                  <span className="font-roboto text-xs md:text-sm lg:text-base text-custom-grey">
                     Open 1:00 PM–1:00 AM daily
                   </span>
                 </li>
@@ -140,7 +141,7 @@ const Footer = () => {
             {/* Social Media Section */}
             <section
               aria-labelledby="socials"
-              className="text-center md:text-left col-span-3 md:col-span-1"
+              className="text-center md:text-left col-span-2 md:col-span-1"
             >
               <h3
                 id="socials"
@@ -183,9 +184,8 @@ const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="border-t border-gray-600/30 py-6 text-center">
-          <p className="font-roboto text-lg text-custom-grey">
-            © {new Date().getFullYear()} ALF BAKE Resto Cafe. All rights
-            reserved.
+          <p className="font-roboto text-xs md:text-sm lg:text-base text-custom-grey">
+            © {new Date().getFullYear()} ALF BAKE . All rights reserved.
           </p>
         </div>
       </div>

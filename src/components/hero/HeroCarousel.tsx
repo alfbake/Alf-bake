@@ -6,37 +6,37 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-// Images are now served from public folder for better performance
+import { IMAGEKIT_URLS } from "@/utils/constants";
+// Images are now served from ImageKit for better performance
 
 const slides = [
   {
     type: "image",
-    src: "/food-burger.jpg",
+    src: IMAGEKIT_URLS.heroCarousel.foodBurger,
     heading: "Burgers, Reimagined",
     sub: "Stacked high with flavor, crafted our way",
   },
   {
     type: "image",
-    src: "/food-steak.jpg",
+    src: IMAGEKIT_URLS.heroCarousel.foodDessert,
     heading: "From the Flames",
     sub: "Grills & kebabs with bold Middle Eastern soul",
   },
   {
     type: "image",
-    src: "/food-dessert.jpg",
+    src: IMAGEKIT_URLS.heroCarousel.foodDessert,
     heading: "A Sweet Pause",
     sub: "Indulgent bites to complete your feast",
   },
   {
     type: "image",
-    src: "/food-salad.jpg",
+    src: IMAGEKIT_URLS.heroCarousel.foodSalad,
     heading: "Fresh Starts",
     sub: "Crisp, colorful sides made to share",
   },
-
   {
     type: "image",
-    src: "/food-coffee.jpg",
+    src: IMAGEKIT_URLS.heroCarousel.foodCoffee,
     heading: "Sip the Moment",
     sub: "Refreshing brews & cool blends to revive you",
   },

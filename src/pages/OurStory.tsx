@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
-// Images are now served from public folder for better performance
+// Images are now served from ImageKit for better performance
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IMAGEKIT_URLS } from "@/utils/constants";
 import OurStoryAnimations, {
   ourStoryAnimationClasses,
 } from "@/components/ui/OurStoryAnimations";
@@ -27,17 +28,19 @@ const OurStory = () => {
           {/* Big Red Header */}
           <section
             className="relative py-16 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url(/mainbanner.png)" }}
+            style={{
+              backgroundImage: `url(${IMAGEKIT_URLS.backgrounds.mainBanner})`,
+            }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 via-red-800/15 to-red-900/20 blur-3xl"></div>
             <div className="relative z-10 container text-center">
               <h1
-                className={`mt-8 md:mt-16 text-black font-roboto font-bold text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] transition-all duration-1000 ease-out ${ourStoryAnimationClasses.headerSlideDown}`}
+                className={`mt-8 md:mt-16 text-black font-roboto font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] transition-all duration-1000 ease-out ${ourStoryAnimationClasses.headerSlideDown}`}
               >
                 OUR STORY
               </h1>
               <p
-                className={`text-black font-script text-2xl md:text-3xl font-bold ${ourStoryAnimationClasses.headerFadeIn}`}
+                className={`text-black font-script text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold ${ourStoryAnimationClasses.headerFadeIn}`}
                 style={{ animationDelay: "300ms" }}
               >
                 Crafting Flavors, Creating Memories
@@ -55,16 +58,16 @@ const OurStory = () => {
               <div className="absolute bottom-1/4 right-1/4 w-1/2 h-1/2 bg-gradient-to-l from-red-700/8 via-red-600/6 to-red-800/10 rounded-full blur-3xl"></div>
             </div>
             <div className="relative z-10 container">
-              <div className="grid md:grid-cols-5 gap-12 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
                 {/* Image */}
                 <div className="md:col-span-2">
                   <div
                     className={`relative overflow-hidden rounded-2xl ${ourStoryAnimationClasses.imageFloat}`}
                   >
                     <img
-                      src="/logo/logo.png"
+                      src={IMAGEKIT_URLS.logo}
                       alt="ALF BAKE logo"
-                      className="w-full h-[600px] object-contain"
+                      className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-contain"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
@@ -77,12 +80,12 @@ const OurStory = () => {
                     style={{ animationDelay: "0.2s" }}
                   >
                     <h2
-                      className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                      className={`font-roboto font-bold text-gray-300 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                     >
                       Our Heritage
                     </h2>
                     <p
-                      className={`font-script text-2xl md:text-3xl text-red-600 text-center md:text-left ${globalAnimationClasses.headingImmediate}`}
+                      className={`font-script text-lg sm:text-xl md:text-2xl lg:text-3xl text-red-600 text-center md:text-left ${globalAnimationClasses.headingImmediate}`}
                       style={{ animationDelay: "0.4s" }}
                     >
                       Where tradition meets bold new flavors
@@ -94,7 +97,7 @@ const OurStory = () => {
                     style={{ animationDelay: "0.6s" }}
                   >
                     <p
-                      className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      className={`text-sm sm:text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       style={{ animationDelay: "0.8s" }}
                     >
                       "We wanted to bring Middle Eastern food in a way that had
@@ -102,7 +105,7 @@ const OurStory = () => {
                       founder capture the soul of ALF BAKE.
                     </p>
                     <p
-                      className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      className={`text-sm sm:text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       style={{ animationDelay: "1.0s" }}
                     >
                       While ALF BAKE is a new venture set to open its doors in
@@ -136,7 +139,7 @@ const OurStory = () => {
           <section className="bg-black py-24 relative">
             <div className="absolute inset-0">
               <img
-                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                src={IMAGEKIT_URLS.ourStory.backgroundTexture}
                 alt="Background texture"
                 className="w-full h-full object-cover"
               />
@@ -201,7 +204,7 @@ const OurStory = () => {
           <section className="relative w-full min-h-screen md:min-h-screen lg:min-h-screen py-18 md:py-32 lg:py-40 md:pb-48 lg:pb-64">
             <div className="absolute inset-0">
               <img
-                src="/lovable-uploads/e2b3d303-abbd-4747-854a-7ff864a60f4b.png"
+                src={IMAGEKIT_URLS.ourStory.backgroundTexture}
                 alt="Textured dark background"
                 className="w-full h-full object-cover"
               />
@@ -217,73 +220,52 @@ const OurStory = () => {
                   <h2
                     className={`font-roboto font-bold text-gray-300 text-5xl md:text-7xl lg:text-9xl xl:text-9xl 2xl:text-9xl leading-normal tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
-                    OUR CULINERY COMPOSER
+                    OUR CULINARY LEADERS
                   </h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4 items-center">
-                  {/* Founder image */}
-                  <div
-                    className={`flex justify-center ${ourStoryAnimationClasses.fadeInLeft}`}
-                    style={{ animationDelay: "0.6s" }}
-                  >
-                    <div className="relative">
-                      <img
-                        src="/founder2.png"
-                        alt="Muhthar Palathumannil - Founder"
-                        className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
-                      />
-                      <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
-                    </div>
-                  </div>
-
-                  {/* Founder description */}
-                  <div
-                    className={`text-center md:text-left space-y-8 ${ourStoryAnimationClasses.fadeInRight}`}
-                    style={{ animationDelay: "0.8s" }}
-                  >
+                <div className="grid md:grid-cols-2 gap-8 items-start">
+                  {/* First Founder - Muhthar */}
+                  <div className="space-y-6">
                     <div
-                      className={`space-y-4 ${ourStoryAnimationClasses.fadeInUp}`}
-                      style={{ animationDelay: "1.0s" }}
+                      className={`flex justify-center ${ourStoryAnimationClasses.fadeInLeft}`}
+                      style={{ animationDelay: "0.6s" }}
+                    >
+                      <div className="relative">
+                        <img
+                          src={IMAGEKIT_URLS.profile.founder1}
+                          alt="Muhthar Palathumannil - Founder & Culinary Visionary"
+                          className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
+                          style={{ objectPosition: "top center" }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
+                      </div>
+                    </div>
+
+                    <div
+                      className={`text-center space-y-4 ${ourStoryAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "0.8s" }}
                     >
                       <p
-                        className={`text-xl md:text-4xl font-script text-red-600 ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "1.2s" }}
+                        className={`text-xl md:text-2xl font-script text-red-600 ${globalAnimationClasses.headingImmediate}`}
                       >
                         Muhthar Palathumannil
                       </p>
                       <p
                         className={`text-lg md:text-xl text-custom-gray-450 [text-shadow:0_0_10px_rgba(239,68,68,0.8)] ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "1.4s" }}
                       >
                         Founder & Culinary Visionary
                       </p>
-                    </div>
-
-                    <div
-                      className={`space-y-6 ${ourStoryAnimationClasses.fadeInUp}`}
-                      style={{ animationDelay: "1.6s" }}
-                    >
                       <p
-                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "1.8s" }}
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       >
-                        Every great restaurant has a story — and ALF BAKE's
-                        begins with the journey of Muhthar Palathumannil.
+                        Born and raised in India, Muhthar's journey began in the
+                        kitchens of his childhood home. His passion for food led
+                        him from Saudi Arabia to Bahrain, where he brings
+                        authentic Middle Eastern flavors to life at ALF BAKE.
                       </p>
                       <p
-                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "2.0s" }}
-                      >
-                        Born and raised in India, Muthhar's earliest memories
-                        are filled with the aromas of home-cooked meals and the
-                        joy of feeding others. He began cooking for his family
-                        at a young age, unknowingly planting the seeds for a
-                        lifelong passion.
-                      </p>
-                      <p
-                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "2.2s" }}
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       >
                         In 2004, he moved to Saudi Arabia, working various jobs
                         before life led him back to his true calling — food.
@@ -292,8 +274,7 @@ const OurStory = () => {
                         flourished.
                       </p>
                       <p
-                        className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
-                        style={{ animationDelay: "2.4s" }}
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       >
                         ALF BAKE is the result of that journey — a place where
                         his heritage meets his vision, where Middle Eastern
@@ -302,24 +283,111 @@ const OurStory = () => {
                         but of his belief that food is an experience to be
                         savored and shared.
                       </p>
-
+                      <p
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        His dedication to authentic flavors and innovative
+                        culinary techniques has made him a respected figure in
+                        the restaurant industry, bringing the true essence of
+                        Middle Eastern cuisine to every dish he creates.
+                      </p>
                       <div
-                        className={`border-l-4 border-red-600 pl-6 py-4 ${ourStoryAnimationClasses.fadeInUp}`}
-                        style={{ animationDelay: "2.6s" }}
+                        className={`border-l-4 border-red-600 pl-4 py-2 ${ourStoryAnimationClasses.fadeInUp}`}
                       >
                         <p
-                          className={`text-base md:text-lg lg:text-xl text-red-600 italic leading-relaxed ${globalAnimationClasses.headingImmediate}`}
-                          style={{ animationDelay: "2.8s" }}
+                          className={`text-sm md:text-base text-red-600 italic leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                         >
                           "Cooking is an art. The more joy one takes in
                           preparing the food, the tastier it will be on the
                           table."
                         </p>
                         <p
-                          className={`text-sm md:text-base text-red-600 italic mt-2 ${globalAnimationClasses.headingImmediate}`}
-                          style={{ animationDelay: "3.0s" }}
+                          className={`text-xs md:text-sm text-red-600 italic mt-1 ${globalAnimationClasses.headingImmediate}`}
                         >
                           — Muhthar Palathumannil
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Second Founder - Noushad */}
+                  <div className="space-y-6">
+                    <div
+                      className={`flex justify-center ${ourStoryAnimationClasses.fadeInRight}`}
+                      style={{ animationDelay: "1.0s" }}
+                    >
+                      <div className="relative">
+                        <img
+                          src={IMAGEKIT_URLS.profile.founder2}
+                          alt="Noushad Noor Mohammed - Founder & Business Visionary"
+                          className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl border-4 border-gray-500/30 shadow-2xl transform hover:scale-105 transition-all duration-500 ease-out"
+                          style={{ objectPosition: "top center" }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl border-4 border-gray-500/20 shadow-inner" />
+                      </div>
+                    </div>
+
+                    <div
+                      className={`text-center space-y-4 ${ourStoryAnimationClasses.fadeInUp}`}
+                      style={{ animationDelay: "1.2s" }}
+                    >
+                      <p
+                        className={`text-xl md:text-2xl font-script text-red-600 ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        Noushad Noor Mohammed
+                      </p>
+                      <p
+                        className={`text-lg md:text-xl text-custom-gray-450 [text-shadow:0_0_10px_rgba(239,68,68,0.8)] ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        Founder & Business Visionary
+                      </p>
+                      <p
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        From Bangalore's jewelry business to restaurant industry
+                        expertise, Noushad brings years of entrepreneurial
+                        experience. As a founder of Bangalore House, he combines
+                        business acumen with a passion for exceptional dining
+                        experiences.
+                      </p>
+                      <p
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        His journey from the jewelry trade to the restaurant
+                        industry showcases his adaptability and commitment to
+                        excellence. Together with Muhthar, he's bringing ALF
+                        BAKE's vision to life in Bahrain.
+                      </p>
+                      <p
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        With his deep understanding of both traditional business
+                        practices and modern restaurant management, Noushad
+                        brings a unique perspective to ALF BAKE. His strategic
+                        vision ensures that every aspect of the dining
+                        experience is carefully crafted for excellence.
+                      </p>
+                      <p
+                        className={`text-sm md:text-base text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                      >
+                        His commitment to quality service and innovative
+                        business solutions has made him a trusted partner in the
+                        culinary world, bringing the perfect balance of
+                        tradition and innovation to ALF BAKE's success story.
+                      </p>
+                      <div
+                        className={`border-l-4 border-red-600 pl-4 py-2 ${ourStoryAnimationClasses.fadeInUp}`}
+                      >
+                        <p
+                          className={`text-sm md:text-base text-red-600 italic leading-relaxed ${globalAnimationClasses.headingImmediate}`}
+                        >
+                          "Success comes when passion meets opportunity, and
+                          we're creating both at ALF BAKE."
+                        </p>
+                        <p
+                          className={`text-xs md:text-sm text-red-600 italic mt-1 ${globalAnimationClasses.headingImmediate}`}
+                        >
+                          — Noushad Noor Mohammed
                         </p>
                       </div>
                     </div>

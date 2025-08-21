@@ -1,3 +1,4 @@
+import { IMAGEKIT_URLS } from "@/utils/constants";
 import React, { useState, useEffect } from "react";
 
 interface LoadingScreenProps {
@@ -74,7 +75,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
             style={{ opacity: logoOpacity }}
           >
             <img
-              src="/logo/logo.png"
+              src={IMAGEKIT_URLS.logo}
               alt="ALF BAKE Logo"
               className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl"
             />

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { IMAGEKIT_URLS } from "@/utils/constants";
 
 const Header = () => {
   const location = useLocation();
@@ -66,7 +67,7 @@ const Header = () => {
                     onClick={toggleMobileMenu}
                   >
                     <img
-                      src="/logo/logo.png"
+                      src={IMAGEKIT_URLS.logo}
                       alt="ALF BAKE logo"
                       className="h-20 w-22"
                       loading="eager"
@@ -129,7 +130,7 @@ const Header = () => {
                         <Phone className="h-4 w-4 text-white" />
                       </div>
                       <span className="font-roboto text-sm text-gray-300">
-                        (+973 ) 77909019, (+973 ) 33909078, (+973 )35195151
+                        (+973 ) 77909019
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
@@ -137,7 +138,7 @@ const Header = () => {
                         <Mail className="h-4 w-4 text-white" />
                       </div>
                       <span className="font-roboto text-sm text-gray-300">
-                        hello@alfbake.co
+                        aflbakerestocafe@gmail.com
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
@@ -145,7 +146,11 @@ const Header = () => {
                         <MapPin className="h-4 w-4 text-white" />
                       </div>
                       <span className="font-roboto text-sm text-gray-300">
-                        Chennai Central Railway Station Area
+                        ALF BAKE
+                        <br />
+                        Opposite Goldcity
+                        <br />
+                        Manama, Bahrain
                       </span>
                     </div>
                   </div>
@@ -158,22 +163,28 @@ const Header = () => {
                   </h3>
                   <div className="flex gap-4">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/alf_bake__/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Instagram"
                       className="w-10 h-10 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500"
                     >
                       <Instagram className="h-5 w-5 text-custom-grey group-hover:text-red-600 transition-colors duration-300" />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.facebook.com/profile.php?id=61579726914316"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Facebook"
                       className="w-10 h-10 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500"
                     >
                       <Facebook className="h-5 w-5 text-custom-grey group-hover:text-red-600 transition-colors duration-300" />
                     </a>
                     <a
-                      href="#"
-                      aria-label="Twitter"
+                      href="https://x.com/AlfBake"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X (Twitter)"
                       className="w-10 h-10 bg-transparent border border-gray-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 hover:scale-110 group hover:border-red-500"
                     >
                       <Twitter className="h-5 w-5 text-custom-grey group-hover:text-red-600 transition-colors duration-300" />
@@ -217,7 +228,7 @@ const Header = () => {
               aria-label="ALF BAKE Home"
             >
               <img
-                src="/logo/logo.png"
+                src={IMAGEKIT_URLS.logo}
                 alt="ALF BAKE logo"
                 className="h-20 w-22"
                 loading="eager"
