@@ -1,10 +1,12 @@
-// Images are now served from public folder for better performance
+import { IMAGEKIT_URLS } from "./constants";
+
+// Images are now served from ImageKit for better performance
 
 export const menuData = [
   {
     id: "burgers",
     title: "BURGERS",
-    image: "/burgerMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.burgerMainSection,
     imagePosition: "right",
     items: [
       {
@@ -74,7 +76,7 @@ export const menuData = [
   {
     id: "club-sandwiches",
     title: "CLUB SANDWICHES",
-    image: "/clubSandWichMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.clubSandwichMainSection,
     imagePosition: "left",
     items: [
       {
@@ -147,7 +149,7 @@ export const menuData = [
   {
     id: "main-course",
     title: "MAIN COURSE",
-    image: "/mainCouseMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.mainCourseMainSection,
     imagePosition: "right",
     items: [
       {
@@ -230,7 +232,7 @@ export const menuData = [
   {
     id: "sandwiches",
     title: "SANDWICHES",
-    image: "/sandwichMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.sandwichMainSection,
     imagePosition: "left",
     items: [
       {
@@ -313,7 +315,7 @@ export const menuData = [
   {
     id: "desserts",
     title: "DESSERTS",
-    image: "/dessertMainSeciton.png",
+    image: IMAGEKIT_URLS.menuMain.dessertMainSection,
     imagePosition: "right",
     items: [
       {
@@ -396,7 +398,7 @@ export const menuData = [
   {
     id: "fresh-juices",
     title: "FRESH JUICES",
-    image: "/juiceMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.juiceMainSection,
     imagePosition: "left",
     items: [
       {
@@ -584,7 +586,7 @@ export const menuData = [
   {
     id: "mojitos",
     title: "MOJITOS",
-    image: "/mojitoMainSection.png",
+    image: IMAGEKIT_URLS.menuMain.mojitoMainSection,
     imagePosition: "right",
     items: [
       {

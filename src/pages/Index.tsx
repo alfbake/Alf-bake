@@ -157,7 +157,7 @@ const Index = () => {
                       style={{ animationDelay: "0.2s" }}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         ABOUT ALF BAKE
                       </h2>
@@ -249,7 +249,7 @@ const Index = () => {
                       className={`space-y-4 ${ourStoryAnimationClasses.headingSlideUp}`}
                     >
                       <h2
-                        className={`font-roboto font-bold text-gray-300 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                        className={`font-roboto font-bold text-gray-300 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                       >
                         A Journey of Bold Flavor
                       </h2>
@@ -310,7 +310,7 @@ const Index = () => {
           </section>
 
           {/* Fresh Service Section */}
-          <section className="relative w-full min-h-screen md:h-screen overflow-hidden">
+          <section className="relative w-full min-h-screen md:min-h-screen lg:h-screen overflow-hidden">
             <div className="absolute inset-0">
               <img
                 src={IMAGEKIT_URLS.backgrounds.backgroundTexture}
@@ -319,14 +319,14 @@ const Index = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
             </div>
-            <div className="relative min-h-screen md:h-full flex items-center justify-center">
-              <div className="max-w-6xl mx-auto px-6 py-20 md:py-0">
+            <div className="relative min-h-screen md:min-h-screen lg:h-full flex items-center justify-center">
+              <div className="max-w-6xl mx-auto px-6 py-20 md:py-12 lg:py-8 xl:py-0">
                 <div
-                  className={`text-center mb-16 ${homeAnimationClasses.fadeInUp}`}
+                  className={`text-center mb-16 mt-8 md:mt-8 lg:mt-0 ${homeAnimationClasses.fadeInUp}`}
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto text-center font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto text-center font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] text-gray-300 mb-6 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     HERE WE SERVE YOU FRESH
                   </h2>
@@ -572,7 +572,7 @@ const Index = () => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h2
-                    className={`font-roboto font-bold text-gray-300 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
+                    className={`font-roboto font-bold text-gray-300 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] mb-4 ${globalAnimationClasses.sectionHeaderGlow}`}
                   >
                     ALF BAKE'S SPECIALS
                   </h2>

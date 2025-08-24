@@ -35,7 +35,7 @@ const OurStory = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 via-red-800/15 to-red-900/20 blur-3xl"></div>
             <div className="relative z-10 container text-center">
               <h1
-                className={`mt-8 md:mt-16 text-black font-roboto font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] transition-all duration-1000 ease-out ${ourStoryAnimationClasses.headerSlideDown}`}
+                className={`mt-8 md:mt-16 text-black font-roboto font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] transition-all duration-1000 ease-out ${ourStoryAnimationClasses.headerSlideDown}`}
               >
                 OUR STORY
               </h1>
@@ -81,7 +81,7 @@ const OurStory = () => {
                     style={{ animationDelay: "0.2s" }}
                   >
                     <h2
-                      className={`font-roboto font-bold text-gray-300 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
+                      className={`font-roboto font-bold text-gray-300 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-tight tracking-[0.05em] md:tracking-[0.1em] ${globalAnimationClasses.sectionHeaderGlow}`}
                     >
                       Our Heritage
                     </h2>
