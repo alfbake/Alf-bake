@@ -202,7 +202,8 @@ const OurStory = () => {
             </div>
           </section>
 
-          {/* Culinary Composer Section */}
+          {/* Culinary Composer Section - TEMPORARILY COMMENTED OUT */}
+          {/* 
           <section className="relative w-full min-h-screen md:min-h-screen lg:min-h-screen py-18 md:py-32 lg:py-40 md:pb-48 lg:pb-64">
             <div className="absolute inset-0">
               <img
@@ -227,7 +228,6 @@ const OurStory = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start">
-                  {/* First Founder - Muhthar */}
                   <div className="space-y-6">
                     <div
                       className={`flex justify-center ${ourStoryAnimationClasses.fadeInLeft}`}
@@ -313,7 +313,6 @@ const OurStory = () => {
                     </div>
                   </div>
 
-                  {/* Second Founder - Noushad */}
                   <div className="space-y-6">
                     <div
                       className={`flex justify-center ${ourStoryAnimationClasses.fadeInRight}`}
@@ -400,6 +399,7 @@ const OurStory = () => {
               </div>
             </div>
           </section>
+          */}
         </div>
       </OurStoryAnimations>
     </GlobalAnimations>

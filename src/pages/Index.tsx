@@ -692,7 +692,8 @@ const Index = () => {
             </div>
           </section>
 
-          {/* The Heart Behind ALF BAKE Section */}
+          {/* The Heart Behind ALF BAKE Section - TEMPORARILY COMMENTED OUT */}
+          {/* 
           <section className="relative w-full min-h-screen py-24">
             <div className="absolute inset-0">
               <img
@@ -704,7 +705,6 @@ const Index = () => {
             </div>
             <div className="relative min-h-screen flex items-center justify-center">
               <div className="max-w-7xl mx-auto px-6 py-20">
-                {/* Centered Header */}
                 <div
                   className={`text-center mb-12 ${ourStoryAnimationClasses.headingSlideUp}`}
                 >
@@ -716,7 +716,6 @@ const Index = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start">
-                  {/* First Founder - Muhthar */}
                   <div className="space-y-6">
                     <div
                       className={`flex justify-center ${ourStoryAnimationClasses.fadeInLeft}`}
@@ -801,7 +800,6 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Second Founder - Noushad */}
                   <div className="space-y-6">
                     <div
                       className={`flex justify-center ${ourStoryAnimationClasses.fadeInRight}`}
@@ -885,7 +883,6 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Read More Button */}
                 <div
                   className={`mt-16 text-center ${ourStoryAnimationClasses.fadeInUp}`}
                   style={{ animationDelay: "1.6s" }}
@@ -917,6 +914,7 @@ const Index = () => {
               </div>
             </div>
           </section>
+          */}
         </div>
       </HomeAnimations>
     </GlobalAnimations>
