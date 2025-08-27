@@ -14,6 +14,7 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [logoOpacity, setLogoOpacity] = useState(0);
+  const [logoBlur, setLogoBlur] = useState(20); // Start with heavy blur
   const [progress, setProgress] = useState(0);
   const [loadedImages, setLoadedImages] = useState(0);
   const [totalImages, setTotalImages] = useState(0);
@@ -23,6 +24,18 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
     setIsVisible(true);
     setProgress(0);
     setLoadedImages(0);
+
+    // Only apply blur effect on first load (initial domain visit)
+    if (isFirstLoad) {
+      setLogoBlur(20); // Heavy blur only on first load
+    } else {
+      setLogoBlur(0); // No blur on subsequent page loads
+    }
+
+    // For initial load, start loading immediately
+    if (isFirstLoad) {
+      setLogoOpacity(1); // Show logo immediately on first load
+    }
 
     // Set total images to load (including the logo)
     const totalToLoad = pageImages.length + 1; // +1 for logo
@@ -51,9 +64,11 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
       // Show logo immediately if images are cached, otherwise wait for 90%
       if (isCached) {
         setLogoOpacity(1);
+        setLogoBlur(0); // No blur if cached
         setLoadedImages(1); // Count logo as loaded
       } else {
-        setLogoOpacity(0);
+        setLogoOpacity(1); // Show logo
+        // Keep existing blur setting (only applied on first load)
       }
 
       // Minimum loading time of 3 seconds
@@ -73,9 +88,14 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
 
         setProgress(combinedProgress);
 
-        // Show logo only when progress reaches 90% (if not cached)
-        if (!isCached && combinedProgress >= 90 && logoOpacity === 0) {
-          setLogoOpacity(1);
+        // Show logo only when progress reaches 90% (if not cached and first load)
+        if (
+          !isCached &&
+          isFirstLoad &&
+          combinedProgress >= 90 &&
+          logoBlur > 0
+        ) {
+          setLogoBlur(0); // Remove blur when progress reaches 90%
           setLoadedImages((prev) => prev + 1);
         }
       }, 50);
@@ -143,8 +163,11 @@ const PageLoadingScreen: React.FC<PageLoadingScreenProps> = ({
 
           {/* Main Logo */}
           <div
-            className="relative transition-opacity duration-1000 ease-out"
-            style={{ opacity: logoOpacity }}
+            className="relative transition-all duration-1000 ease-out"
+            style={{
+              opacity: logoOpacity,
+              filter: `blur(${logoBlur}px)`,
+            }}
           >
             <img
               src={IMAGEKIT_URLS.logo}

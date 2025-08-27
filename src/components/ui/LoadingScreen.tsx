@@ -12,28 +12,80 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [logoOpacity, setLogoOpacity] = useState(0);
+  const [logoBlur, setLogoBlur] = useState(30); // Start with very heavy blur
   const [textOpacity, setTextOpacity] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
+    // Preload the logo image to detect loading speed
+    const preloadLogo = () => {
+      const img = new Image();
+      const startTime = Date.now();
+
+      img.onload = () => {
+        const loadTime = Date.now() - startTime;
+        setImageLoaded(true);
+
+        // If image loads quickly (< 200ms), it's likely cached
+        if (loadTime < 200) {
+          setLogoBlur(0); // No blur if cached
+        } else {
+          // For slower loading, keep blur and clear it gradually
+          setLogoBlur(30); // Ensure blur is set for slow loading
+        }
+      };
+
+      img.onerror = () => {
+        setImageLoaded(true);
+        setLogoBlur(0); // Remove blur if image fails to load
+      };
+
+      img.src = IMAGEKIT_URLS.logo;
+    };
+
+    // Start preloading the logo
+    preloadLogo();
+
     // Logo fade in animation
     const logoTimer = setTimeout(() => {
       setLogoOpacity(1);
-    }, 500);
+      // Ensure blur is applied when logo appears
+      if (!imageLoaded) {
+        setLogoBlur(30); // Force blur when logo first appears
+      }
+    }, 200); // Show logo earlier
 
     // Text fade in animation
     const textTimer = setTimeout(() => {
       setTextOpacity(1);
     }, 1000);
 
-    // Progress animation
+    // Progress animation with blur removal based on image loading
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
+        const newProgress = prev + 2;
+
+        // Remove blur when progress reaches 50% and image is loaded
+        if (newProgress >= 50 && imageLoaded && logoBlur > 0) {
+          setLogoBlur(0);
+        }
+
+        // If image is not loaded yet, keep heavy blur
+        if (!imageLoaded && logoBlur < 30) {
+          setLogoBlur(30);
+        }
+
+        // If image is cached (no blur), progress faster
+        if (logoBlur === 0 && newProgress < 80) {
+          return newProgress + 1; // Faster progress for cached images
+        }
+
+        if (newProgress >= 100) {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 2;
+        return newProgress;
       });
     }, duration / 50);
 
@@ -51,7 +103,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
       clearInterval(progressInterval);
       clearTimeout(completeTimer);
     };
-  }, [duration, onLoadingComplete]);
+  }, [duration, onLoadingComplete, imageLoaded, logoBlur]);
 
   if (!isVisible) {
     return null;
@@ -71,8 +123,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
 
           {/* Main Logo */}
           <div
-            className="relative transition-opacity duration-1000 ease-out"
-            style={{ opacity: logoOpacity }}
+            className="relative transition-all duration-1000 ease-out"
+            style={{
+              opacity: logoOpacity,
+              filter: `blur(${logoBlur}px)`,
+              transform: logoBlur > 0 ? "scale(1.1)" : "scale(1)", // Slight scale for better blur visibility
+            }}
           >
             <img
               src={IMAGEKIT_URLS.logo}
@@ -113,6 +169,10 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
               Loading...
             </p>
             <p className="text-red-500 text-xs font-roboto mt-1">{progress}%</p>
+            {/* Debug info - remove this later */}
+            <p className="text-gray-600 text-xs mt-1">
+              Blur: {logoBlur}px | Image Loaded: {imageLoaded ? "Yes" : "No"}
+            </p>
           </div>
         </div>
 

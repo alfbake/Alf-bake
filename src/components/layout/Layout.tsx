@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { isLoading, pageImages } = usePageLoading();
+  const { isLoading, pageImages, stopLoading } = usePageLoading();
   const location = useLocation();
   const isFirstLoad = useFirstLoad();
 
@@ -19,9 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
       <PageLoadingScreen
         key={location.pathname} // Force re-render on page change
-        onLoadingComplete={() => {
-          // This will be called when loading is complete
-        }}
+        onLoadingComplete={stopLoading}
         pageImages={pageImages}
         isFirstLoad={isFirstLoad}
       />

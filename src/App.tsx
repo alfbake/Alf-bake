@@ -37,6 +37,7 @@ const AppContent = () => {
                 <Route path="/alfbake/ourstory" element={<OurStory />} />
                 <Route path="/alfbake/contact-us" element={<ContactUs />} />
                 <Route path="/menu" element={<Menu />} />
+                <Route path="/aboutus" element={<OurStory />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

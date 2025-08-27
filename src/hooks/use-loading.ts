@@ -7,7 +7,7 @@ export const useLoading = (initialLoading = true, duration = 3000) => {
     if (initialLoading) {
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, duration);
+      }, duration + 100); // Add small delay for smooth transition
 
       return () => clearTimeout(timer);
     }
