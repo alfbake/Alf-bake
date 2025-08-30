@@ -256,7 +256,7 @@ const Index = () => {
                       <p
                         className={`font-script text-lg sm:text-xl md:text-2xl lg:text-3xl text-red-600 text-center md:text-left ${globalAnimationClasses.headingImmediate}`}
                       >
-                        From Kerala's Heritage to Bahrain's Future
+                        Where Tradition Meets Bold New Flavors
                       </p>
                     </div>
 
