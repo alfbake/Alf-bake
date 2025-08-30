@@ -179,9 +179,9 @@ const Index = () => {
                       >
                         At ALF BAKE, we bring together decades of culinary
                         heritage and a passion for innovation. Rooted in the
-                        kitchens of Afain Restaurant, Kerala, and presented in
-                        Bahrain by Bangaluru House, our story blends tradition
-                        with creativity.
+                        kitchens of Bangalore House, Bangalore, India, and
+                        presented in Bahrain by Bangalore House, our story
+                        blends tradition with creativity.
                       </p>
                       <p
                         className={`text-roboto md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}

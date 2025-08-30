@@ -103,7 +103,7 @@ const OurStory = () => {
                     >
                       "We wanted to bring Middle Eastern food in a way that had
                       never been presented before." — these words from our
-                      founder capture the soul of ALF BAKE.
+                      founders capture the soul of ALF BAKE.
                     </p>
                     <p
                       className={`text-sm sm:text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
@@ -111,24 +111,28 @@ const OurStory = () => {
                     >
                       While ALF BAKE is a new venture set to open its doors in
                       2025, its story begins much earlier. Our roots run deep in
-                      the kitchens of Afain Restaurant in Kerala's Koduvally — a
+                      the kitchens of Bangalore House in Bangalore, India — a
                       name celebrated for its authentic flavors, heartfelt
-                      service, and commitment to quality. Over the years, Afain
-                      has become a trusted culinary destination, earning the
-                      love of countless guests.
+                      service, and commitment to quality. Over the years,
+                      Bangalore House has become a trusted culinary destination,
+                      earning the love of countless guests.
                     </p>
                     <p
                       className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                       style={{ animationDelay: "1.2s" }}
                     >
-                      Now, Bangaluru House proudly presents ALF BAKE in Bahrain,
+                      Now, Bangalore House proudly presents ALF BAKE in Bahrain,
                       carrying forward this legacy while introducing a fresh
-                      chapter. Our mission is simple yet bold — to honor the
-                      authenticity of Middle Eastern cuisine while reimagining
-                      it for a new generation of food lovers. From the fragrant
-                      spices of tradition to the creativity of modern
-                      gastronomy, every dish is crafted to surprise, delight,
-                      and tell a story.
+                      chapter. Building on their success in Bangalore, India,
+                      where they have become a favorite destination for the
+                      people, known for their exceptional dining experiences and
+                      authentic flavors, they are now bringing their culinary
+                      expertise to Bahrain. Our mission is simple yet bold — to
+                      honor the authenticity of Middle Eastern cuisine while
+                      reimagining it for a new generation of food lovers. From
+                      the fragrant spices of tradition to the creativity of
+                      modern gastronomy, every dish is crafted to surprise,
+                      delight, and tell a story.
                     </p>
                   </div>
                 </div>
@@ -162,8 +166,8 @@ const OurStory = () => {
                     className={`font-script text-2xl md:text-3xl text-red-600 ${globalAnimationClasses.headingImmediate}`}
                     style={{ animationDelay: "0.4s" }}
                   >
-                    From Kerala's heritage kitchens to Bahrain's vibrant dining
-                    scene
+                    From Bangalore's heritage kitchens to Bahrain's vibrant
+                    dining scene
                   </p>
                 </div>
 
@@ -176,18 +180,21 @@ const OurStory = () => {
                     style={{ animationDelay: "0.8s" }}
                   >
                     ALF BAKE proudly stands as a part of a distinguished
-                    culinary family. Its roots trace back to Afain Restaurant, a
-                    beloved culinary landmark in Kerala, India, renowned for its
-                    authentic flavors and heartfelt service.
+                    culinary family. Its roots trace back to Bangalore House, a
+                    beloved culinary landmark in Bangalore, India, renowned for
+                    its authentic flavors and heartfelt service.
                   </p>
                   <p
                     className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
                     style={{ animationDelay: "1.0s" }}
                   >
                     Expanding this legacy, ALF BAKE in Bahrain is presented by
-                    Bangaluru House, bringing decades of expertise, hospitality,
+                    Bangalore House, bringing decades of expertise, hospitality,
                     and a shared passion for exceptional food to the heart of
-                    the Middle East.
+                    the Middle East. With their proven success in Bangalore,
+                    India, Bangalore House brings their commitment to delivering
+                    outstanding culinary experiences to Bahrain for the first
+                    time through ALF BAKE.
                   </p>
                   <p
                     className={`text-base md:text-lg lg:text-xl text-custom-gray-450 leading-relaxed ${globalAnimationClasses.headingImmediate}`}
